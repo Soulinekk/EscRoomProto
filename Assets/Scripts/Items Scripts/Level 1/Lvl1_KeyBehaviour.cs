@@ -31,6 +31,13 @@ public class Lvl1_KeyBehaviour : MonoBehaviour {
 
         if(canPickUp)
             Manager.Instance.OnItemPickUp(id, gameObject);
+
+        if (Manager.Instance.countClicksOn)
+        {
+            Manager.Instance.clickAmount--;
+            if (Manager.Instance.clickAmount == 0)
+                Manager.Instance.GameOver();
+        }
     }
 
     void OnTouchStay()

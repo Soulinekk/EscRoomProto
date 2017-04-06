@@ -29,6 +29,15 @@ public class ItemsBehaviour : MonoBehaviour, IPointerClickHandler{
             image.color = c;
             Manager.Instance.itemActive = slotId;
 
+            if (Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.childCount != 0 && Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.GetChild(0).name == "lvl1_BoxSmall(Clone)" && Manager.Instance.itemFirstSpawnPlace.childCount == 0)
+            {
+
+                Debug.Log("here");
+                GameObject itemPlaceHolder = Instantiate(Manager.Instance.itemsByIdBigOne[slotId], Manager.Instance.itemFirstSpawnPlace);
+                Manager.Instance.actualStuffForSwitch = "box_to_open";
+                Manager.Instance.backButton.SetActive(true);
+                Manager.Instance.itemsToDoStuffWith[1].SetActive(true);
+            }
         }
         else
         {
@@ -36,13 +45,38 @@ public class ItemsBehaviour : MonoBehaviour, IPointerClickHandler{
             Color c = image.color;
             c.a = 0.5f;
             image.color = c;
-            Manager.Instance.itemActive = slotId;
 
             image = Manager.Instance.itemsSlots[slotId].gameObject.GetComponent<Image>();
             c = image.color;
             c.a = 1f;
             image.color = c;
             Manager.Instance.itemActive = slotId;
+
+            if (Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.childCount != 0 && Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.GetChild(0).name == "lvl1_BoxSmall(Clone)" && Manager.Instance.itemFirstSpawnPlace.childCount == 0)
+            {
+
+                Debug.Log("here");
+                GameObject itemPlaceHolder = Instantiate(Manager.Instance.itemsByIdBigOne[slotId], Manager.Instance.itemFirstSpawnPlace);
+                Manager.Instance.actualStuffForSwitch = "box_to_open";
+                Manager.Instance.backButton.SetActive(true);
+                Manager.Instance.itemsToDoStuffWith[1].SetActive(true);
+            }
         }
+
+        if (Manager.Instance.countClicksOn)
+        {
+            Manager.Instance.clickAmount--;
+            if (Manager.Instance.clickAmount == 0)
+                Manager.Instance.GameOver();
+        }
+    }
+
+    public void UnactiveButton()
+    {
+        Image image = Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.GetComponent<Image>();
+        Color c = image.color;
+        c.a = 0.5f;
+        image.color = c;
+        Manager.Instance.itemActive = slotId;
     }
 }

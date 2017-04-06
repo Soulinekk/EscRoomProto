@@ -27,6 +27,7 @@ public class BoxWithKey : MonoBehaviour {
         Manager.Instance.OnItemPickUp(id, gameObject);
         Manager.Instance.countClicksOn = true;
         Manager.Instance.clickCountText.gameObject.SetActive(true);
+        Manager.Instance.itemsToDoStuffWith[5].SetActive(true);
     }
 
     void OnTouchStay()

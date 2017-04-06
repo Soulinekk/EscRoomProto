@@ -12,6 +12,7 @@ public class VaultBehaviour : MonoBehaviour {
     private GameObject vaultDoors;
     public bool canOpen = false;
     public GameObject vKey;
+    public bool keyPlaced = false;
     
 	void Start () {
 
@@ -24,42 +25,37 @@ public class VaultBehaviour : MonoBehaviour {
 
     public void OpenVault()
     {
-        for (int i = 0; i < Manager.Instance.itemsSlots.Length; i++)
+
+        if( keyPlaced == true)
         {
-          //  Debug.Log(Manager.Instance.itemsSlots[i].gameObject.transform.GetChild(0));
-            if(Manager.Instance.itemsSlots[i].gameObject.transform.childCount != 0 && Manager.Instance.itemsSlots[i].gameObject.transform.GetChild(0).name == "lvl1_KeySmall(Clone)")
-            {
-                canOpen = true;
-            }
+            canOpen = true;
         }
 
         if (canOpen)
         {
 
-        Manager.Instance.backButton.SetActive(true);
-        Manager.Instance.actualStuffForSwitch = "door_to_close";
-        Manager.Instance.ScreenZoom(vectorToZoomTo, camSize, timeLerp);
-        vaultDoors.GetComponent<BoxCollider>().enabled = false;
-        vaultDoors.SetActive(false);
+            Manager.Instance.backButton.SetActive(true);
+            Manager.Instance.actualStuffForSwitch = "door_to_close";
+            Manager.Instance.ScreenZoom(vectorToZoomTo, camSize, timeLerp);
+            vaultDoors.GetComponent<BoxCollider>().enabled = false;
+            vaultDoors.SetActive(false);
         }
     }
-
-    /*public void ExitVault()
-    {
-        Manager.Instance.ReturnToDefaultScreenPosition();
-        vaultDoors.SetActive(true);
-        vaultDoors.GetComponent<BoxCollider>().enabled = true;
-    }*/
 
     public void PutKey()
     {
         if (canOpen == false)
         {
             
-            if(Manager.Instance.itemActive != -1 && Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.GetChild(0).name == "lvl1_KeyVaultSmall(Clone)")
+            if(Manager.Instance.itemActive != -1 && Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.childCount != 0 && Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.GetChild(0).name == "lvl1_KeyVaultSmall(Clone)")
             {
 
+
+                vaultDoors.GetComponent<BoxCollider>().enabled = false;
+                Manager.Instance.VaultDoorInvokeMethod();
                 Instantiate(vKey, vaultDoors.transform);
+                Destroy(Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.GetChild(0).gameObject);
+                keyPlaced = true;
             }
         }
         
@@ -75,8 +71,8 @@ public class VaultBehaviour : MonoBehaviour {
     {
         if (Manager.Instance.countClicksOn)
         {
-            Manager.Instance.clickAmount++;
-            if (Manager.Instance.clickAmount > 3)
+            Manager.Instance.clickAmount--;
+            if (Manager.Instance.clickAmount == 0)
                 Manager.Instance.GameOver();
         }
 

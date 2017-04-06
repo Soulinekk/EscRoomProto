@@ -6,7 +6,7 @@ public class Gracz : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -18,7 +18,7 @@ public class Gracz : MonoBehaviour {
                     if (Manager.Instance.countClicksOn)
                     {
                         Manager.Instance.clickAmount--;
-                        if (Manager.Instance.clickAmount > 3)
+                        if (Manager.Instance.clickAmount == 0)
                             Manager.Instance.GameOver();
                     }
                         
