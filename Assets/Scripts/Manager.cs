@@ -27,7 +27,7 @@ public class Manager : MonoBehaviour {
     public GameObject[] itemsByIdBigOne;
     public GameObject[] itemsByIdSmallOne;
     public GameObject[] itemsToDoStuffWith;
-    private Transform itemFirstSpawnPlace;
+    public Transform itemFirstSpawnPlace;
     public float itemPickUpShowTime = 1.5f;
     [HideInInspector]
     public string actualStuffForSwitch;
@@ -39,7 +39,7 @@ public class Manager : MonoBehaviour {
     [HideInInspector]
     public bool countClicksOn = false;
     [HideInInspector]
-    public int clickAmount = 4;
+    public int clickAmount;
     public Text clickCountText;
     
 
@@ -72,6 +72,7 @@ public class Manager : MonoBehaviour {
         itemFirstSpawnPlace = GameObject.Find("Item_first_spawn_parent").transform;
 
         itemActive = -1;
+        clickAmount = 5;
     }
 
     void Update()
@@ -132,8 +133,8 @@ public class Manager : MonoBehaviour {
     {
 
         Destroy(pickUpedObject);
-        GameObject itemPlaceHolder = Instantiate(itemsByIdBigOne[itemId], itemFirstSpawnPlace);
-        Destroy(itemPlaceHolder, itemPickUpShowTime);
+        //GameObject itemPlaceHolder = Instantiate(itemsByIdBigOne[itemId], itemFirstSpawnPlace);
+        //Destroy(itemPlaceHolder, itemPickUpShowTime);
         for (int i = 0; i <= itemsSlots.Length; i++)
         {
             if (!itemsSlots[i].GetComponent<ItemsBehaviour>().slotTakenOrNot)
@@ -155,11 +156,16 @@ public class Manager : MonoBehaviour {
                 ReturnToDefaultScreenPosition();
                 itemsToDoStuffWith[0].SetActive(true);
                 backButton.SetActive(false);
-                Invoke("EnableCollider", 1);
+                Invoke("EnableVaultDoorCollider", 1);
                 break;
 
-            case "2":
+            case "box_to_open":
 
+                backButton.SetActive(false);
+                itemsSlots[itemActive].GetComponent<ItemsBehaviour>().UnactiveButton();
+                itemActive = -1;
+                Destroy(itemFirstSpawnPlace.GetChild(0).gameObject);
+                itemsToDoStuffWith[1].SetActive(false);
                 break;
 
             default:
@@ -170,13 +176,25 @@ public class Manager : MonoBehaviour {
 
     void EnableVaultDoorCollider()
     {
-
+        
         itemsToDoStuffWith[0].GetComponent<BoxCollider>().enabled = true;
+    }
+
+    public void VaultDoorInvokeMethod()
+    {
+        Invoke("EnableVaultDoorCollider", 0.1f);
     }
 
     public void GameOver()
     {
         Debug.Log("Game Over Boosted Bonobo!");
+        itemsToDoStuffWith[2].SetActive(true);
+        itemsToDoStuffWith[3].SetActive(true);
+        itemsToDoStuffWith[4].SetActive(false);
+        itemFirstSpawnPlace.gameObject.SetActive(false);
+        backButton.SetActive(false);
+        DestroyImmediate(this.gameObject);
+
     }
 
     void ClickCount()
