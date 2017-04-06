@@ -152,12 +152,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractive: 0
   avaibleSprites:
-  - {fileID: 21300000, guid: bd403690df8091e468879758a092e089, type: 3}
-  - {fileID: 21300002, guid: bd403690df8091e468879758a092e089, type: 3}
-  - {fileID: 21300004, guid: bd403690df8091e468879758a092e089, type: 3}
-  - {fileID: 21300006, guid: bd403690df8091e468879758a092e089, type: 3}
-  - {fileID: 21300008, guid: bd403690df8091e468879758a092e089, type: 3}
-  - {fileID: 21300010, guid: bd403690df8091e468879758a092e089, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!212 &13744616
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -1,15 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: a6455db98e8fc1e4ebdb2475191cc6ca
-timeCreated: 1491460911
-=======
 guid: e77973ce78f7f0a46b1d4e84f34bc604
-<<<<<<< HEAD
-timeCreated: 1491465278
-=======
-timeCreated: 1491464690
->>>>>>> origin/master
->>>>>>> origin/master
+timeCreated: 1491511031
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -138,10 +129,10 @@ TextureImporter:
         serializedVersion: 2
         x: 15
         y: 0
-        width: 60
+        width: 70
         height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -151,23 +142,10 @@ TextureImporter:
         serializedVersion: 2
         x: 83
         y: 0
-        width: 60
+        width: 70
         height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ElectricBox_2
-      rect:
-        serializedVersion: 2
-        x: 164
-        y: 66
-        width: 13
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -177,10 +155,10 @@ TextureImporter:
         serializedVersion: 2
         x: 167
         y: 0
-        width: 74
+        width: 70
         height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -190,23 +168,10 @@ TextureImporter:
         serializedVersion: 2
         x: 248
         y: 0
-        width: 74
+        width: 70
         height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ElectricBox_5
-      rect:
-        serializedVersion: 2
-        x: 165
-        y: 27
-        width: 8
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
