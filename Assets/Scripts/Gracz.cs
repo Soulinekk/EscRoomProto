@@ -12,9 +12,16 @@ public class Gracz : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                InteractiveItem f = hit.collider.gameObject.GetComponent<InteractiveItem>();  //thats bad :D
+                InteractiveItem f = hit.collider.gameObject.GetComponent<InteractiveItem>(); 
                 if (f != null)
                 {
+                    if (Manager.Instance.countClicksOn)
+                    {
+                        Manager.Instance.clickAmount--;
+                        if (Manager.Instance.clickAmount > 3)
+                            Manager.Instance.GameOver();
+                    }
+                        
                     f.OnClickBehaviour();
                 }
             }
