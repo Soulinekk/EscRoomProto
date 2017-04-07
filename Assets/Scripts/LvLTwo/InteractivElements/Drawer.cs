@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Drawer : InteractivElement {
 
-    public UseableElement hidenItem;
+    
     protected override void Start()
     {
-        hidenItem.gameObject.SetActive(false);
+        foreach(UseableElement obj in hidenItems)
+            obj.gameObject.SetActive(false);
         base.Start();
         actualState = States.Closed;
     }
@@ -21,8 +22,11 @@ public class Drawer : InteractivElement {
                     mySpriteRenderer.sprite = avaibleSprites[1];
                     gameObject.GetComponent<Collider2D>().offset = new Vector2(-0.2f, -0.15f);
                     actualState = States.Open;
-                    if (!hidenItem.picked)
-                        hidenItem.gameObject.SetActive(true);
+                    foreach (UseableElement obj in hidenItems)
+                    {
+                        if (!obj.picked)
+                            obj.gameObject.SetActive(true);
+                    }
 
                 }
                 break;
@@ -32,8 +36,11 @@ public class Drawer : InteractivElement {
                     mySpriteRenderer.sprite = avaibleSprites[0];
                     gameObject.GetComponent<Collider2D>().offset = new Vector2(0.16f, 0.16f);
                     actualState = States.Closed;
-                    if(!hidenItem.picked)
-                         hidenItem.gameObject.SetActive(false);
+                    foreach (UseableElement obj in hidenItems)
+                    {
+                        if (!obj.picked)
+                            obj.gameObject.SetActive(false);
+                    }
                 }
                 break;
            

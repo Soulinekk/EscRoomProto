@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,8 +23,10 @@ public class Player : MonoBehaviour {
                     {
                     if (intItem.isInteractive)
                     {
-                        
+                        StartCoroutine(CountClick());
+                       
                         intItem.OnClickBehaviour();
+                        Inventory.Instance.SetActiveElement(0);
                     }
                     }
                     UseableElement usblItem = hit.collider.gameObject.GetComponent<UseableElement>();
@@ -41,5 +44,14 @@ public class Player : MonoBehaviour {
 
         }
         
+    }
+
+    private IEnumerator CountClick()
+    {
+        interactiveItemClicked = true;
+        //Debug.Log("action!");
+        yield return new WaitForFixedUpdate();
+        interactiveItemClicked = false;
+        yield return null;
     }
 }
