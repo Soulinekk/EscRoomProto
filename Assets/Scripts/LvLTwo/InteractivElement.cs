@@ -13,6 +13,7 @@ public abstract class InteractivElement : MonoBehaviour
     protected SpriteRenderer mySpriteRenderer;
     public Sprite[] avaibleSprites;
     protected bool SequenceOn;
+
     protected int actionClickCount;
     public UseableElement[] hidenItems;
 

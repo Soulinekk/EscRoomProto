@@ -19,10 +19,10 @@ public class Feedback : Singleton<Feedback>
         StartCoroutine(ShowTextC(t));
         
     }
-    public IEnumerator ShowTextC(float t)
+    private IEnumerator ShowTextC(float time)
     {
         
-        yield return new WaitForSeconds(t);
+        yield return new WaitForSeconds(time);
         feedPanel.SetActive(false);
         feedText.text = "";
     }

@@ -34,7 +34,8 @@ public class Aquarium : InteractivElement {
                 {
                         actualState = States.PhaseOne;
                         isInteractive = false;
-                        Inventory.Instance.AddToInventory(hidenItems[0]);
+                        hidenItems[0].PickUp();
+                        //Inventory.Instance.AddToInventory(hidenItems[0]);
 
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                 }
