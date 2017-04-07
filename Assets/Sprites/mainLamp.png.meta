@@ -1,15 +1,11 @@
 fileFormatVersion: 2
-guid: e77973ce78f7f0a46b1d4e84f34bc604
-timeCreated: 1491569450
+guid: 09537fdef25814a488ab35d09315c502
+timeCreated: 1491570272
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ElectricBox_0
-    21300002: ElectricBox_1
-    21300004: ElectricBox_2
-    21300006: ElectricBox_3
-    21300008: ElectricBox_4
-    21300010: ElectricBox_5
+    21300000: mainLamp_0
+    21300002: mainLamp_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -124,54 +120,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ElectricBox_0
+      name: mainLamp_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 0
-        width: 73
-        height: 146
+        x: 0
+        y: 46
+        width: 228
+        height: 45
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ElectricBox_1
+      name: mainLamp_1
       rect:
         serializedVersion: 2
-        x: 91
+        x: 0
         y: 0
-        width: 73
-        height: 146
+        width: 228
+        height: 45
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ElectricBox_3
-      rect:
-        serializedVersion: 2
-        x: 167
-        y: 0
-        width: 73
-        height: 146
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ElectricBox_4
-      rect:
-        serializedVersion: 2
-        x: 248
-        y: 0
-        width: 73
-        height: 146
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
