@@ -23,10 +23,8 @@ public class Door : MonoBehaviour {
 
     void OnTouchUp()
     {
-        Debug.Log("!!");
         if (Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.childCount != 0 && Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.GetChild(0).name == "lvl1_KeyDoorSmall(Clone)") ;
         {
-            Debug.Log("!");
             SceneManager.LoadScene(1);
         }
     }

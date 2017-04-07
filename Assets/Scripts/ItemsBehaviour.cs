@@ -55,7 +55,6 @@ public class ItemsBehaviour : MonoBehaviour, IPointerClickHandler{
             if (Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.childCount != 0 && Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.GetChild(0).name == "lvl1_BoxSmall(Clone)" && Manager.Instance.itemFirstSpawnPlace.childCount == 0)
             {
 
-                Debug.Log("here");
                 GameObject itemPlaceHolder = Instantiate(Manager.Instance.itemsByIdBigOne[slotId], Manager.Instance.itemFirstSpawnPlace);
                 Manager.Instance.actualStuffForSwitch = "box_to_open";
                 Manager.Instance.backButton.SetActive(true);
