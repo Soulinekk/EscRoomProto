@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Zoom : MonoBehaviour {
     public GameObject[] areaObjects;
+    public GameObject backButton;
     public Camera mainCam;
     private Vector3 startPos;
     public Vector3 endPos;
@@ -19,6 +21,7 @@ public class Zoom : MonoBehaviour {
             startPos = mainCam.transform.position;
             startSize = mainCam.orthographicSize;
         }
+        backButton.SetActive(false);
 	}
 	
 	public void ZoomIn()
@@ -36,6 +39,8 @@ public class Zoom : MonoBehaviour {
         {
             obj.GetComponent<Collider2D>().enabled = !obj.GetComponent<Collider2D>().enabled;
         }
+        backButton.GetComponent<Button>().onClick.AddListener(() => { this.ZoomOut(); });
+        backButton.SetActive(true);
         //cam shift ;
     }
     public void ZoomOut()
@@ -43,12 +48,16 @@ public class Zoom : MonoBehaviour {
         Debug.Log("zooming out");
 
         // cam shift
+        mainCam.orthographicSize = startSize;
+        mainCam.transform.position = startPos;
 
         gameObject.GetComponent<Collider2D>().enabled = !gameObject.GetComponent<Collider2D>().enabled;
         foreach (GameObject obj in areaObjects)
         {
             obj.GetComponent<Collider2D>().enabled = !obj.GetComponent<Collider2D>().enabled;
         }
+        backButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        backButton.SetActive(false);
     }
 
     private IEnumerator ZoomPos(Vector3 endV3,float endF)
