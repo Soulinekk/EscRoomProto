@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class Aquarium : InteractivElement {
 
-
+    
     protected override void Start()
     { 
         base.Start();
         actualState = States.UnBroken;
+        hidenItems[0].gameObject.GetComponent<Collider2D>().enabled = false;
     }
-    /*protected override*/ void Update()
-    {
-        if (Player.interactiveItemClicked)
-        {
-            Debug.Log("aqua helou");
-        }
-    }
+    
 
     protected override IEnumerator OnClickAction()
     {
@@ -26,29 +21,35 @@ public class Aquarium : InteractivElement {
                 Debug.Log(Inventory.Instance.activeElement.objName);
                 if (Inventory.Instance.activeElement.objName == "mlotek")
                 {
-                    if (avaibleSprites.Length > 1)
-                    { //Open no water
-                        mySpriteRenderer.sprite = avaibleSprites[1];
+                        //mySpriteRenderer.sprite = avaibleSprites[1];
                         actualState = States.Broken;
-                        isInteractive = false;
-                    }
+                        SequenceOn = true;
+                    
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                 }
-                else { Debug.Log("Can't reach through glass"); }
+                else { Feedback.Instance.ShowText("There's glass on top",1.5f); }
                 break;
-            /*                      Reszta nie jest interaktywna
-            case States.PhaseOne:
+            case States.Broken:
+                if (Inventory.Instance.activeElement.objName == "net")
+                {
+                        actualState = States.PhaseOne;
+                        isInteractive = false;
+                        hidenItems[0].PickUp();
+                        //Inventory.Instance.AddToInventory(hidenItems[0]);
 
+                    Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
+                }
+                else { Feedback.Instance.ShowText("To far to reach by hand", 1.5f); }
                 break;
-            case States.PhaseTwo:
-                break;
-            case States.PhaseThree:
-                break;
-            case States.PhaseFour:
-                break;
-                */
+            /*  
+        case States.PhaseTwo:
+            break;
+        case States.PhaseThree:
+            break;
+        case States.PhaseFour:
+            break;
+            */
             default:
-                Debug.Log("nothin");
                /* if (avaibleSprites.Length > 0)  //Close
                     mySpriteRenderer.sprite = avaibleSprites[0];
                 actualState = States.UnBroken;*/

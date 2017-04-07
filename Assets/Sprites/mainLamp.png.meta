@@ -1,15 +1,11 @@
 fileFormatVersion: 2
-guid: bd403690df8091e468879758a092e089
-timeCreated: 1491554473
+guid: 09537fdef25814a488ab35d09315c502
+timeCreated: 1491570272
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: 0
-    21300002: 2
-    21300004: 1
-    21300006: 3
-    21300008: 4
-    21300010: 5
+    21300000: mainLamp_0
+    21300002: mainLamp_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -124,80 +120,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 0
+      name: mainLamp_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 443
-        width: 380
-        height: 215
+        x: 0
+        y: 46
+        width: 228
+        height: 45
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: 2
+      name: mainLamp_1
       rect:
         serializedVersion: 2
-        x: 412
-        y: 442
-        width: 380
-        height: 215
+        x: 0
+        y: 0
+        width: 228
+        height: 45
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 1
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 221
-        width: 380
-        height: 215
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 3
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 222
-        width: 380
-        height: 215
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 4
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 1
-        width: 380
-        height: 215
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: 5
-      rect:
-        serializedVersion: 2
-        x: 388
-        y: 3
-        width: 380
-        height: 215
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

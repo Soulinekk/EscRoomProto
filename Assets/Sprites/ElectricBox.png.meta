@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e77973ce78f7f0a46b1d4e84f34bc604
-timeCreated: 1491511031
+timeCreated: 1491569450
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -129,7 +129,7 @@ TextureImporter:
         serializedVersion: 2
         x: 15
         y: 0
-        width: 70
+        width: 73
         height: 146
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -140,9 +140,9 @@ TextureImporter:
       name: ElectricBox_1
       rect:
         serializedVersion: 2
-        x: 83
+        x: 91
         y: 0
-        width: 70
+        width: 73
         height: 146
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -155,7 +155,7 @@ TextureImporter:
         serializedVersion: 2
         x: 167
         y: 0
-        width: 70
+        width: 73
         height: 146
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -168,7 +168,7 @@ TextureImporter:
         serializedVersion: 2
         x: 248
         y: 0
-        width: 70
+        width: 73
         height: 146
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

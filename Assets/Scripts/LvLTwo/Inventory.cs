@@ -45,14 +45,8 @@ public class Inventory : Singleton<Inventory> {
         Debug.Log(i);
         if (i < 6)
         {
-            if (activeElement == inventory[i])
-            {
-                activeElement = inventory[0];
-            }
-            else
-            {
                 activeElement = inventory[i];
-            }
+            
             Debug.Log(activeElement.objName);
         }
     }

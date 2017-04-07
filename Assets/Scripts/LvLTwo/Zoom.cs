@@ -15,12 +15,13 @@ public class Zoom : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		foreach(GameObject obj in areaObjects)
+        /*foreach(GameObject obj in areaObjects)
         {
             obj.GetComponent<Collider2D>().enabled = !obj.GetComponent<Collider2D>().enabled;
-            startPos = mainCam.transform.position;
-            startSize = mainCam.orthographicSize;
-        }
+            
+        }*/
+        startPos = mainCam.transform.position;
+        startSize = mainCam.orthographicSize;
         backButton.SetActive(false);
 	}
 	

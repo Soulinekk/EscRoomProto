@@ -8,6 +8,7 @@ public class UseableElement : MonoBehaviour {
     public bool picked;
     public string objName;
     public Sprite icon;
+    public string pickUpFeedback;
     protected virtual void Start()
     {
         picked = false;
@@ -21,6 +22,7 @@ public class UseableElement : MonoBehaviour {
 
     protected virtual IEnumerator OnPickUp()
     {
+        Feedback.Instance.ShowText(pickUpFeedback, 1.5f);
         Inventory.Instance.AddToInventory(this);
         yield return null;
     }
