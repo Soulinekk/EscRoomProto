@@ -74,7 +74,7 @@ public class Manager : MonoBehaviour {
         itemFirstSpawnPlace = GameObject.Find("Item_first_spawn_parent").transform;
 
         itemActive = -1;
-        clickAmount = 5;
+        clickAmount = 6;
     }
 
     void Update()
@@ -164,7 +164,6 @@ public class Manager : MonoBehaviour {
 
                 Destroy(itemPlaceholder);
                 inputControlsScript.enabled = true;
-                itemsToDoStuffWith[4].SetActive(true);
                 itemsToDoStuffWith[8].SetActive(false);
                 _isLerping_defaultPozition = true;
                 backButton.SetActive(false);

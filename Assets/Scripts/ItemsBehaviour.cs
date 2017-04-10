@@ -37,7 +37,6 @@ public class ItemsBehaviour : MonoBehaviour, IPointerClickHandler{
                 Manager.Instance.actualStuffForSwitch = "box_to_open";
                 Manager.Instance.backButton.SetActive(true);
                 Manager.Instance.inputControlsScript.enabled = false;
-                Manager.Instance.itemsToDoStuffWith[4].SetActive(false);
                 Manager.Instance.itemsToDoStuffWith[8].SetActive(true);
             }
         }
@@ -62,7 +61,6 @@ public class ItemsBehaviour : MonoBehaviour, IPointerClickHandler{
                 Manager.Instance.actualStuffForSwitch = "box_to_open";
                 Manager.Instance.backButton.SetActive(true);
                 Manager.Instance.inputControlsScript.enabled = false;
-                Manager.Instance.itemsToDoStuffWith[4].SetActive(false);
                 Manager.Instance.itemsToDoStuffWith[8].SetActive(true);
             }
         }
