@@ -17,7 +17,7 @@ public class Heater : InteractivElement {
     {
         if (actionClickCount == 2)
         {
-            SequenceOn = false;
+            sequenceOn = false;
             actualState = States.PhaseTwo;
             actionClickCount = 0;
 
@@ -38,7 +38,7 @@ public class Heater : InteractivElement {
                     actualState = States.PhaseOne;
                     Feedback.Instance.ShowText("Good spot for drying", 1.5f);
                     hidenItems[0].gameObject.SetActive(true);
-                    SequenceOn = true;
+                    sequenceOn = true;
                     actionClickCount = 0;
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                 }

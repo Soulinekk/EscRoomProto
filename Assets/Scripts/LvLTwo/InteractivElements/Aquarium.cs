@@ -9,9 +9,15 @@ public class Aquarium : InteractivElement {
     { 
         base.Start();
         actualState = States.UnBroken;
+        sequenceSlowerer = 2;
+        activationCheck = true;
         hidenItems[0].gameObject.GetComponent<Collider2D>().enabled = false;
     }
-    
+    protected override void FixedUpdate()
+    {
+       
+        base.FixedUpdate();
+    }
 
     protected override IEnumerator OnClickAction()
     {
@@ -23,13 +29,13 @@ public class Aquarium : InteractivElement {
                 {
                         //mySpriteRenderer.sprite = avaibleSprites[1];
                         actualState = States.Broken;
-                        SequenceOn = true;
+                        sequenceOn = true;
                     
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                 }
                 else { Feedback.Instance.ShowText("There's glass on top",1.5f); }
                 break;
-            case States.Broken:
+            default:
                 if (Inventory.Instance.activeElement.objName == "net")
                 {
                         actualState = States.PhaseOne;
@@ -49,11 +55,7 @@ public class Aquarium : InteractivElement {
         case States.PhaseFour:
             break;
             */
-            default:
-               /* if (avaibleSprites.Length > 0)  //Close
-                    mySpriteRenderer.sprite = avaibleSprites[0];
-                actualState = States.UnBroken;*/
-                break;
+            
 
                 
         }

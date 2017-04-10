@@ -6,6 +6,7 @@ public class Lamp : InteractivElement {
     protected override void Start()
     {
         base.Start();
+        activationCheck = true;
         actualState = States.Closed;
     }
 
@@ -13,7 +14,7 @@ public class Lamp : InteractivElement {
     {
         if (actionClickCount == 5)
         {
-            SequenceOn = false;
+            sequenceOn = false;
             actualState = States.Broken;
             actionClickCount = 0;
 
@@ -31,7 +32,7 @@ public class Lamp : InteractivElement {
                 {
                     Feedback.Instance.ShowText("Doesn't fit well, but it works", 1.5f);
                     actualState = States.Open;
-                    SequenceOn = true;
+                    sequenceOn = true;
                 }
                 else
                 {
@@ -41,6 +42,18 @@ public class Lamp : InteractivElement {
             case States.Open:
 
                 Feedback.Instance.ShowText("Looks fine", 0.7f);
+                break;
+            case States.PhaseOne:
+
+                Feedback.Instance.ShowText("Looks like phase one", 0.7f);
+                break;
+            case States.PhaseTwo:
+
+                Feedback.Instance.ShowText("Looks like phase two", 0.7f);
+                break;
+            case States.PhaseThree:
+
+                Feedback.Instance.ShowText("Looks like phase three", 0.7f);
                 break;
 
             case States.Broken:

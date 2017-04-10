@@ -21,7 +21,7 @@ public class projector : InteractivElement {
                     Feedback.Instance.ShowText("This goes there", 1.5f);
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                     actualState = States.Open;
-                    SequenceOn = true;
+                    sequenceOn = true;
                 }
                 else if (Inventory.Instance.activeElement.objName == "wetSlides")
                 {

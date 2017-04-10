@@ -8,21 +8,42 @@ public abstract class InteractivElement : MonoBehaviour
     //Its copy of interactiveItem.cs from 1lvl for clear 2lvl hierarchy 
     [HideInInspector]
     public bool isInteractive;
-    
+
     protected Collider c;
     protected SpriteRenderer mySpriteRenderer;
-    public Sprite[] avaibleSprites;
-    protected bool SequenceOn;
+    
+    protected bool sequenceOn;
+    protected int sequenceSlowerer;
 
     protected int actionClickCount;
+    
+
+    [HideInInspector]
+
+    public enum States { Open, Closed, UnBroken, Broken, DarkRoom, PhaseOne, PhaseTwo, PhaseThree, PhaseFour,PhaseFive,PhaseSix };
+    public States actualState; 
+
+
+
+    public InteractivElement aktywator;
+    [SerializeField]
+    protected InteractivElement mainLamp;
+    protected bool activationCheck;
+    protected States activatingState;
+
+
+    public Sprite[] avaibleSprites;
     public UseableElement[] hidenItems;
-
-    protected enum States {Open, Closed,UnBroken, Broken, PhaseOne, PhaseTwo, PhaseThree, PhaseFour };
-    protected States actualState;
-
     protected virtual void Start()
     {
-        SequenceOn = false;
+        if(aktywator==null)
+            aktywator = this;
+        mainLamp = GameObject.Find("mainLamp").GetComponent<InteractivElement>();
+
+        activationCheck = true;
+        activatingState = States.PhaseFour;
+        sequenceSlowerer = 1;
+        sequenceOn = false;
         isInteractive = true;
         actualState = States.UnBroken;
         c = gameObject.GetComponent<Collider>();
@@ -31,15 +52,25 @@ public abstract class InteractivElement : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (Player.interactiveItemClicked && SequenceOn)
+        if (aktywator.actualState == activatingState && activationCheck)
         {
-            AdvanceSequence();
+            sequenceOn = true;
+            activationCheck = false;
+        }
+
+        if (Player.interactiveItemClicked && sequenceOn )
+        {
+            if(actionClickCount % sequenceSlowerer == 0)
+                 AdvanceSequence();
+
             actionClickCount++;
         }
+        
     }
 
     protected virtual void AdvanceSequence()
     {
+        ChangeState();
         int i = 0;
         while(avaibleSprites[i].name != mySpriteRenderer.sprite.name && i<avaibleSprites.Length-2)    
         {
@@ -47,6 +78,7 @@ public abstract class InteractivElement : MonoBehaviour
 
         }
         mySpriteRenderer.sprite = avaibleSprites[i + 1];
+       
 
 
     }
@@ -68,12 +100,13 @@ public abstract class InteractivElement : MonoBehaviour
     }
     protected virtual IEnumerator AnimSprites(int startSprite,int endSprite,float time) //override this to move/change interactive items
     {
-        isInteractive = false; //na czas animacji objekt nie interaktywny
+        Player.allowInteraction = false; //na czas animacji interakcja nie interaktywny
         if (startSprite < endSprite)
         {
             for (int i = startSprite + 1; i <= endSprite; i++)
             {
                 mySpriteRenderer.sprite = avaibleSprites[i];
+                
                 yield return new WaitForSeconds(time);
             }
         }
@@ -86,7 +119,37 @@ public abstract class InteractivElement : MonoBehaviour
             }
         }
 
-        isInteractive = true;
+        Player.allowInteraction = true;
         yield return null;
     }
+
+    protected void ChangeState()
+    {
+        int i=0;
+        while (mySpriteRenderer.sprite != avaibleSprites[i])
+        {
+            i++;
+        }
+        switch (i)
+        {
+            case (2):
+                actualState = States.PhaseOne;
+                break;
+            case (3):
+                actualState = States.PhaseTwo;
+                break;
+            case (4):
+                actualState = States.PhaseThree;
+                break;
+            case (5):
+                actualState = States.PhaseFour;
+                break;
+
+
+            default:
+                break;
+        }
+    }
+
+    
 }
