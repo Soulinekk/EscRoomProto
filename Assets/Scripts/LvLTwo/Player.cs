@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public static bool interactiveItemClicked = false;
-
+    public static bool allowInteraction=true;
     void Update()                                       //Wysyłanie raycasta z kursora na gre, 
     {                                                   //jezeli jakikolwiek interaktywny element zostanie uderzony, aktywuje sie
         if (Input.GetMouseButtonDown(0))
@@ -16,7 +16,7 @@ public class Player : MonoBehaviour {
                 RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
 
                 //If something was hit, the RaycastHit2D.collider will not be null.
-                if (hit.collider != null)
+                if (hit.collider != null && allowInteraction)
                 {
                     InteractivElement intItem = hit.collider.gameObject.GetComponent<InteractivElement>();
                     if (intItem != null)

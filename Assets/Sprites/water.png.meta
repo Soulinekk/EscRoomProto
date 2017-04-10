@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a91c03dee99b03a4ba941e9955e0454c
-timeCreated: 1491466085
+timeCreated: 1491821464
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,10 +8,12 @@ TextureImporter:
     21300002: water_0
     21300004: water_1
     21300006: water_2
-    21300008: water_4
-    21300010: water_5
+    21300008: water_5
+    21300010: water_6
     21300012: water_6
-    21300014: water_7
+    21300014: water_8
+    21300016: water_4
+    21300018: water_7
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -147,7 +149,7 @@ TextureImporter:
         width: 1600
         height: 900
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -160,7 +162,7 @@ TextureImporter:
         width: 1600
         height: 900
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -173,20 +175,7 @@ TextureImporter:
         width: 1600
         height: 900
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: water_4
-      rect:
-        serializedVersion: 2
-        x: 1601
-        y: 2703
-        width: 1600
-        height: 900
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -195,11 +184,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1601
-        y: 1802
+        y: 2703
         width: 1600
         height: 900
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -208,11 +197,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1601
-        y: 901
+        y: 1802
         width: 1600
         height: 900
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -221,11 +210,37 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1601
+        y: 901
+        width: 1600
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: water_8
+      rect:
+        serializedVersion: 2
+        x: 1601
         y: 0
         width: 1600
         height: 900
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: water_4
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 3604
+        width: 1600
+        height: 900
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
