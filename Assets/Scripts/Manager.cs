@@ -41,6 +41,8 @@ public class Manager : MonoBehaviour {
     [HideInInspector]
     public int clickAmount;
     public Text clickCountText;
+    public InputControlls inputControlsScript;
+    public GameObject itemPlaceholder = null;
     
 
     void Start()
@@ -133,14 +135,13 @@ public class Manager : MonoBehaviour {
     {
 
         Destroy(pickUpedObject);
-        //GameObject itemPlaceHolder = Instantiate(itemsByIdBigOne[itemId], itemFirstSpawnPlace);
-        //Destroy(itemPlaceHolder, itemPickUpShowTime);
         for (int i = 0; i <= itemsSlots.Length; i++)
         {
             if (!itemsSlots[i].GetComponent<ItemsBehaviour>().slotTakenOrNot)
             {
                 itemsSlots[i].GetComponent<ItemsBehaviour>().itemIdInSlot = itemId;
-                Instantiate(itemsByIdSmallOne[itemId], new Vector3 (itemsSlots[i].transform.position.x, itemsSlots[i].transform.position.y, itemsSlots[i].transform.position.z), Quaternion.identity, itemsSlots[i].transform);
+                Instantiate(itemsByIdSmallOne[itemId], new Vector3 (itemsSlots[i].transform.position.x, itemsSlots[i].transform.position.y, itemsSlots[i].transform.position.z), 
+                    Quaternion.identity, itemsSlots[i].transform);
                 itemsSlots[i].GetComponent<ItemsBehaviour>().slotTakenOrNot = true;
                 break;
             }
@@ -161,11 +162,12 @@ public class Manager : MonoBehaviour {
 
             case "box_to_open":
 
+                Destroy(itemPlaceholder);
+                inputControlsScript.enabled = true;
+                itemsToDoStuffWith[4].SetActive(true);
+                itemsToDoStuffWith[8].SetActive(false);
+                _isLerping_defaultPozition = true;
                 backButton.SetActive(false);
-                itemsSlots[itemActive].GetComponent<ItemsBehaviour>().UnactiveButton();
-                itemActive = -1;
-                Destroy(itemFirstSpawnPlace.GetChild(0).gameObject);
-                itemsToDoStuffWith[1].SetActive(false);
                 break;
 
             default:
@@ -187,14 +189,13 @@ public class Manager : MonoBehaviour {
 
     public void GameOver()
     {
+        itemsToDoStuffWith[6].SetActive(true);
         Debug.Log("Game Over Boosted Bonobo!");
         itemsToDoStuffWith[2].SetActive(true);
         itemsToDoStuffWith[3].SetActive(true);
         itemsToDoStuffWith[4].SetActive(false);
         itemFirstSpawnPlace.gameObject.SetActive(false);
         backButton.SetActive(false);
-        DestroyImmediate(this.gameObject);
-
     }
 
     void ClickCount()

@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxWithKey : MonoBehaviour {
-
-    private int id;
+public class Puzzle : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        id = 2;
+		
 	}
 	
 	// Update is called once per frame
@@ -16,7 +14,6 @@ public class BoxWithKey : MonoBehaviour {
 		
 	}
 
-    #region Input Behaviour
     void OnTouchDown()
     {
 
@@ -24,9 +21,7 @@ public class BoxWithKey : MonoBehaviour {
 
     void OnTouchUp()
     {
-        Manager.Instance.OnItemPickUp(id, gameObject);
-        Manager.Instance.countClicksOn = true;
-        Manager.Instance.itemsToDoStuffWith[5].SetActive(true);
+
     }
 
     void OnTouchStay()
@@ -38,5 +33,4 @@ public class BoxWithKey : MonoBehaviour {
     {
 
     }
-    #endregion
 }

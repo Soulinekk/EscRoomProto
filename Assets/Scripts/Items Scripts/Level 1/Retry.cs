@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 public class Retry : MonoBehaviour, IPointerClickHandler{
 
+    public GameObject gmObject;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -18,5 +20,6 @@ public class Retry : MonoBehaviour, IPointerClickHandler{
     public void OnPointerClick(PointerEventData eventData)
     {
         SceneManager.LoadScene(0);
+        DestroyImmediate(gmObject);
     }
 }

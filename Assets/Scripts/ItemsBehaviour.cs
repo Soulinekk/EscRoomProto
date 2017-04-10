@@ -29,14 +29,16 @@ public class ItemsBehaviour : MonoBehaviour, IPointerClickHandler{
             image.color = c;
             Manager.Instance.itemActive = slotId;
 
-            if (Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.childCount != 0 && Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.GetChild(0).name == "lvl1_BoxSmall(Clone)" && Manager.Instance.itemFirstSpawnPlace.childCount == 0)
+            if (Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.childCount != 0 && Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.GetChild(0).name == "lvl1_Puzzle(Clone)" && Manager.Instance.itemFirstSpawnPlace.childCount == 0)
             {
 
-                Debug.Log("here");
-                GameObject itemPlaceHolder = Instantiate(Manager.Instance.itemsByIdBigOne[slotId], Manager.Instance.itemFirstSpawnPlace);
+                Manager.Instance.ScreenZoom(new Vector3(0.358f, 1.206f, -10f), 0.12f, 0.2f);
+                Manager.Instance.itemPlaceholder = Instantiate(Manager.Instance.itemsByIdBigOne[0], Manager.Instance.itemsToDoStuffWith[1].transform);
                 Manager.Instance.actualStuffForSwitch = "box_to_open";
                 Manager.Instance.backButton.SetActive(true);
-                Manager.Instance.itemsToDoStuffWith[1].SetActive(true);
+                Manager.Instance.inputControlsScript.enabled = false;
+                Manager.Instance.itemsToDoStuffWith[4].SetActive(false);
+                Manager.Instance.itemsToDoStuffWith[8].SetActive(true);
             }
         }
         else
@@ -52,13 +54,16 @@ public class ItemsBehaviour : MonoBehaviour, IPointerClickHandler{
             image.color = c;
             Manager.Instance.itemActive = slotId;
 
-            if (Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.childCount != 0 && Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.GetChild(0).name == "lvl1_BoxSmall(Clone)" && Manager.Instance.itemFirstSpawnPlace.childCount == 0)
+            if (Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.childCount != 0 && Manager.Instance.itemsSlots[Manager.Instance.itemActive].gameObject.transform.GetChild(0).name == "lvl1_Puzzle(Clone)" && Manager.Instance.itemFirstSpawnPlace.childCount == 0)
             {
 
-                GameObject itemPlaceHolder = Instantiate(Manager.Instance.itemsByIdBigOne[slotId], Manager.Instance.itemFirstSpawnPlace);
+                Manager.Instance.ScreenZoom(new Vector3(0.358f, 1.206f, -10f), 0.12f, 0.2f);
+                Manager.Instance.itemPlaceholder = Instantiate(Manager.Instance.itemsByIdBigOne[0], Manager.Instance.itemsToDoStuffWith[1].transform);
                 Manager.Instance.actualStuffForSwitch = "box_to_open";
                 Manager.Instance.backButton.SetActive(true);
-                Manager.Instance.itemsToDoStuffWith[1].SetActive(true);
+                Manager.Instance.inputControlsScript.enabled = false;
+                Manager.Instance.itemsToDoStuffWith[4].SetActive(false);
+                Manager.Instance.itemsToDoStuffWith[8].SetActive(true);
             }
         }
 
