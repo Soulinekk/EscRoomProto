@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: 86ffaeec3ae72fd4ea95f2405b574f3d
-timeCreated: 1491511048
+timeCreated: 1491827207
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: heater_0
     21300002: heater_1
+    21300004: heater_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -123,12 +124,12 @@ TextureImporter:
       name: heater_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
         width: 116
         height: 154
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -136,7 +137,20 @@ TextureImporter:
       name: heater_1
       rect:
         serializedVersion: 2
-        x: 122
+        x: 121
+        y: 0
+        width: 116
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: heater_2
+      rect:
+        serializedVersion: 2
+        x: 241
         y: 0
         width: 116
         height: 154

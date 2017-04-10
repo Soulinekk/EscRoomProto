@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8a133d781c2f45c4783b03f226fb2569
-timeCreated: 1491511337
+timeCreated: 1491828136
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -20,6 +20,7 @@ TextureImporter:
     21300026: Screen_13
     21300028: Screen_14
     21300030: Screen_15
+    21300032: Screen_16
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -137,8 +138,8 @@ TextureImporter:
       name: Screen_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 990
+        x: 4
+        y: 974
         width: 456
         height: 308
       alignment: 2
@@ -150,8 +151,8 @@ TextureImporter:
       name: Screen_1
       rect:
         serializedVersion: 2
-        x: 474
-        y: 1057
+        x: 462
+        y: 1041
         width: 456
         height: 241
       alignment: 2
@@ -163,8 +164,8 @@ TextureImporter:
       name: Screen_2
       rect:
         serializedVersion: 2
-        x: 934
-        y: 1186
+        x: 923
+        y: 1170
         width: 456
         height: 112
       alignment: 2
@@ -176,8 +177,8 @@ TextureImporter:
       name: Screen_3
       rect:
         serializedVersion: 2
-        x: 931
-        y: 1080
+        x: 919
+        y: 1064
         width: 456
         height: 27
       alignment: 2
@@ -189,8 +190,8 @@ TextureImporter:
       name: Screen_4
       rect:
         serializedVersion: 2
-        x: 18
-        y: 671
+        x: 6
+        y: 655
         width: 456
         height: 308
       alignment: 2
@@ -202,8 +203,8 @@ TextureImporter:
       name: Screen_5
       rect:
         serializedVersion: 2
-        x: 476
-        y: 766
+        x: 464
+        y: 750
         width: 456
         height: 213
       alignment: 2
@@ -215,8 +216,8 @@ TextureImporter:
       name: Screen_6
       rect:
         serializedVersion: 2
-        x: 936
-        y: 863
+        x: 924
+        y: 847
         width: 456
         height: 116
       alignment: 2
@@ -228,8 +229,8 @@ TextureImporter:
       name: Screen_7
       rect:
         serializedVersion: 2
-        x: 933
-        y: 760
+        x: 921
+        y: 744
         width: 456
         height: 28
       alignment: 2
@@ -241,8 +242,8 @@ TextureImporter:
       name: Screen_8
       rect:
         serializedVersion: 2
-        x: 18
-        y: 352
+        x: 6
+        y: 336
         width: 456
         height: 308
       alignment: 2
@@ -254,8 +255,8 @@ TextureImporter:
       name: Screen_9
       rect:
         serializedVersion: 2
-        x: 476
-        y: 440
+        x: 464
+        y: 424
         width: 456
         height: 220
       alignment: 2
@@ -267,8 +268,8 @@ TextureImporter:
       name: Screen_10
       rect:
         serializedVersion: 2
-        x: 936
-        y: 533
+        x: 924
+        y: 517
         width: 456
         height: 127
       alignment: 2
@@ -280,8 +281,8 @@ TextureImporter:
       name: Screen_11
       rect:
         serializedVersion: 2
-        x: 934
-        y: 440
+        x: 922
+        y: 424
         width: 455
         height: 29
       alignment: 2
@@ -336,6 +337,19 @@ TextureImporter:
         y: 115
         width: 456
         height: 27
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Screen_16
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1287
+        width: 456
+        height: 308
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}

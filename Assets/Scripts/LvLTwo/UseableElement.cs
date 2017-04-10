@@ -9,9 +9,19 @@ public class UseableElement : MonoBehaviour {
     public string objName;
     public Sprite icon;
     public string pickUpFeedback;
+    protected InteractivElement mainLamp;
+
     protected virtual void Start()
     {
+        mainLamp = GameObject.Find("mainLamp").GetComponent<InteractivElement>();
         picked = false;
+    }
+    protected void FixedUpdate()
+    {
+        if (mainLamp.actualState == InteractivElement.States.Broken)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void PickUp()

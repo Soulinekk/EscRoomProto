@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e77973ce78f7f0a46b1d4e84f34bc604
-timeCreated: 1491569450
+timeCreated: 1491823235
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -127,7 +127,7 @@ TextureImporter:
       name: ElectricBox_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 6
         y: 0
         width: 73
         height: 146
@@ -140,7 +140,7 @@ TextureImporter:
       name: ElectricBox_1
       rect:
         serializedVersion: 2
-        x: 91
+        x: 82
         y: 0
         width: 73
         height: 146
@@ -153,7 +153,7 @@ TextureImporter:
       name: ElectricBox_3
       rect:
         serializedVersion: 2
-        x: 167
+        x: 158
         y: 0
         width: 73
         height: 146
@@ -166,12 +166,25 @@ TextureImporter:
       name: ElectricBox_4
       rect:
         serializedVersion: 2
-        x: 248
+        x: 239
         y: 0
         width: 73
         height: 146
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ElectricBox_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 73
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

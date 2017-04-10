@@ -15,58 +15,7 @@ public class Screen : InteractivElement {
     }
     protected override void FixedUpdate()
     {
-       /* if (sequenceOn && actualState== States.Open|| actualState == States.Closed)
-        {
-            if (mainLamp.actualState == States.UnBroken)
-            {
-                actualState = States.PhaseOne;
-                if (mySpriteRenderer.sprite == avaibleSprites[0])
-                    mySpriteRenderer.sprite = avaibleSprites[7];
-                else
-                    mySpriteRenderer.sprite = avaibleSprites[4];
-            }
-            else
-            {
-                actualState = States.PhaseThree;
-                if (mySpriteRenderer.sprite == avaibleSprites[0])
-                    mySpriteRenderer.sprite = avaibleSprites[11];
-                else
-                    mySpriteRenderer.sprite = avaibleSprites[8];
-            }
-
-
-
-            sequenceOn = false;
-        }
-        
-        if (Player.interactiveItemClicked && sequenceOn)
-        {
-            if (actionClickCount % sequenceSlowerer == 0)
-                switch (actualState)
-                {
-                    case States.PhaseThree:
-                        actualState = States.PhaseFive;
-                        mySpriteRenderer.sprite = avaibleSprites[8];
-                        break;
-                    case States.PhaseFour:
-                        actualState = States.PhaseSix;
-                        mySpriteRenderer.sprite = avaibleSprites[15];
-                        break;
-                    case States.PhaseFive:
-                        actualState = States.PhaseThree;
-                        mySpriteRenderer.sprite = avaibleSprites[12];
-                        break;
-                    case States.PhaseSix:
-                        actualState = States.PhaseFour;
-                        mySpriteRenderer.sprite = avaibleSprites[11];
-
-                        break;
-                    default:
-                        break;
-                }
-
-            actionClickCount++;
-        }*/
+        base.FixedUpdate();
     }
     
 

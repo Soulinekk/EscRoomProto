@@ -18,7 +18,7 @@ public class ElecBox : InteractivElement {
         
         if (sequenceOn)
         {
-            StartCoroutine(AnimSprites(0, avaibleSprites.Length-1, 1f));
+            StartCoroutine(AnimSprites(0, avaibleSprites.Length-1, 0.3f));
             
             sequenceOn = false;
         }

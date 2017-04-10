@@ -11,7 +11,7 @@ public abstract class InteractivElement : MonoBehaviour
 
     protected Collider c;
     protected SpriteRenderer mySpriteRenderer;
-    
+    public Sprite darkRoomSprite;
     protected bool sequenceOn;
     protected int sequenceSlowerer;
 
@@ -52,7 +52,12 @@ public abstract class InteractivElement : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (aktywator.actualState == activatingState && activationCheck)
+        if(mainLamp.actualState == States.Broken && actualState != States.DarkRoom && this != mainLamp)
+        {
+            actualState = States.DarkRoom;
+            ChangeToDarkRoom();
+        }
+        else if (aktywator.actualState == activatingState && activationCheck)
         {
             sequenceOn = true;
             activationCheck = false;
@@ -66,6 +71,13 @@ public abstract class InteractivElement : MonoBehaviour
             actionClickCount++;
         }
         
+    }
+
+    protected virtual void ChangeToDarkRoom()
+    {
+        if(darkRoomSprite!=null)
+            mySpriteRenderer.sprite = darkRoomSprite;
+        //isInteractive = false;
     }
 
     protected virtual void AdvanceSequence()

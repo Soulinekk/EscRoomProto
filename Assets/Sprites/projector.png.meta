@@ -1,11 +1,13 @@
 fileFormatVersion: 2
 guid: 102bfece4ea863c41b06bcd68a6b801c
-timeCreated: 1491511292
+timeCreated: 1491823486
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: projector_0
     21300002: projector_1
+    21300004: projector_2
+    21300006: projector_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -123,8 +125,34 @@ TextureImporter:
       name: projector_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
+        x: 4
+        y: 51
+        width: 90
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: projector_1
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 51
+        width: 90
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: projector_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2
         width: 90
         height: 34
       alignment: 0
@@ -133,11 +161,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: projector_1
+      name: projector_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 102
+        y: 3
         width: 90
         height: 34
       alignment: 0
