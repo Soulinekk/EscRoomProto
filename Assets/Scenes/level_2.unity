@@ -717,7 +717,9 @@ MonoBehaviour:
   isInteractive: 0
   darkRoomSprite: {fileID: 21300032, guid: 8a133d781c2f45c4783b03f226fb2569, type: 3}
   actualState: 0
-  references: []
+  references:
+  - {fileID: 1889881745}
+  - {fileID: 719314540}
   activationCheck: 0
   avaibleSprites:
   - {fileID: 21300000, guid: 8a133d781c2f45c4783b03f226fb2569, type: 3}
@@ -1516,7 +1518,6 @@ GameObject:
   m_Component:
   - component: {fileID: 826811109}
   - component: {fileID: 826811108}
-  - component: {fileID: 826811110}
   m_Layer: 0
   m_Name: Gracz
   m_TagString: Untagged
@@ -1544,25 +1545,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1626995883}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &826811110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 826811107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d87dd92c97f15848b9f339016180a01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  picked: 0
-  objName: 
-  icon: {fileID: 0}
-  pickUpFeedback: 
 --- !u!1 &861079977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,6 +2580,50 @@ SpriteRenderer:
   m_Size: {x: 3.18, y: 0.83}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!1 &1626995882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1626995883}
+  - component: {fileID: 1626995884}
+  m_Layer: 0
+  m_Name: hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1626995883
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1626995882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 826811109}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1626995884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1626995882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d87dd92c97f15848b9f339016180a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  picked: 0
+  objName: 
+  icon: {fileID: 0}
+  pickUpFeedback: 
 --- !u!1 &1644930630
 GameObject:
   m_ObjectHideFlags: 0

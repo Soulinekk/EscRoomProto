@@ -52,9 +52,12 @@ public abstract class InteractivElement : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         DarkRoomCheck();
-        ActivateSequenceCheck();
+        if (actualState != States.DarkRoom)
+        {
+            ActivateSequenceCheck();
 
-        AdvSeqCheck();
+            AdvSeqCheck();
+        }
         
     }
 
@@ -128,7 +131,10 @@ public abstract class InteractivElement : MonoBehaviour
         //What will happen on click? 
 
         //c.transform.position = new Vector3(c.transform.position.x, c.transform.position.y + 5, c.transform.position.z); 
-
+        if (actualState == States.DarkRoom)
+        {
+            Feedback.Instance.ShowText("Can't see anything up there",1.5f);
+        }
 
         yield return null; 
     }
@@ -165,33 +171,35 @@ public abstract class InteractivElement : MonoBehaviour
 
     protected void ChangeState()
     {
-        int i=0;
-        while (mySpriteRenderer.sprite != avaibleSprites[i])
-        {
-            i++;
-        }
-        switch (i)
-        {
-            case (1):
-                actualState = States.PhaseOne;
-                break;
-            case (2):
-                actualState = States.PhaseTwo;
-                break;
-            case (3):
-                actualState = States.PhaseThree;
-                break;
-            case (4):
-                actualState = States.PhaseFour;
-                break;
-            case (5):
-                actualState = States.PhaseFive;
-                break;
+        
+            int i = 0;
+            while (mySpriteRenderer.sprite != avaibleSprites[i] && i < avaibleSprites.Length - 1)
+            {
+                i++;
+            }
+            switch (i)
+            {
+                case (1):
+                    actualState = States.PhaseOne;
+                    break;
+                case (2):
+                    actualState = States.PhaseTwo;
+                    break;
+                case (3):
+                    actualState = States.PhaseThree;
+                    break;
+                case (4):
+                    actualState = States.PhaseFour;
+                    break;
+                case (5):
+                    actualState = States.PhaseFive;
+                    break;
 
 
-            default:
-                break;
-        }
+                default:
+                    break;
+            }
+        
     }
     protected InteractivElement FindInReferences(string refName)
     {

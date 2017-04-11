@@ -55,7 +55,7 @@ public class Drawer : InteractivElement {
                 }
                 break;
             default:
-                if (avaibleSprites.Length > 0)
+                if (avaibleSprites.Length > 0 && actualState!= States.DarkRoom)
                 {  //Close
                     sequenceOn = false;
                     if (FindInReferences("Akwarium").actualState >= closingState)

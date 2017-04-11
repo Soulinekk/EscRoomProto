@@ -17,7 +17,8 @@ public class MainLamp : InteractivElement{
     {
         if (sequenceOn)
         {
-            StartCoroutine(AnimSprites(0, avaibleSprites.Length - 1, 1f));
+            //StartCoroutine(AnimSprites(0, avaibleSprites.Length - 1, 1f));
+            mySpriteRenderer.sprite = avaibleSprites[1];
             actualState = States.Broken;
             BG.GetComponent<SpriteRenderer>().sprite = bgdark;
             activationCheck = true;
