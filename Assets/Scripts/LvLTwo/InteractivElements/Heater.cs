@@ -35,12 +35,18 @@ public class Heater : InteractivElement {
                 if (Inventory.Instance.activeElement.objName == "wetSlides")
                 {
                     //mySpriteRenderer.sprite = avaibleSprites[1];
-                    actualState = States.PhaseOne;
-                    Feedback.Instance.ShowText("Good spot for drying", 1.5f);
-                    hidenItems[0].gameObject.SetActive(true);
-                    sequenceOn = true;
-                    actionClickCount = 0;
-                    Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
+                    if (FindInReferences("Akwarium").actualState != States.PhaseThree && FindInReferences("Akwarium").actualState != States.PhaseFour)
+                    {
+                        actualState = States.Open;
+                        Feedback.Instance.ShowText("Good spot for drying", 1.5f);
+                        hidenItems[0].gameObject.SetActive(true);
+                        sequenceOn = true;
+                        actionClickCount = 0;
+                        Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
+                    }
+                    else {
+                        Feedback.Instance.ShowText("To late for that!", 2f);
+                    }
                 }
                 else
                 {
@@ -48,22 +54,31 @@ public class Heater : InteractivElement {
                 }
                 break;
             case States.Open:
-                
-                break;
+                Feedback.Instance.ShowText("Still Drying", 1f);
+                break; 
               
         case States.PhaseOne:
                 Feedback.Instance.ShowText("Still Drying",1f);
             break;
                 
         case States.PhaseTwo:
-                Feedback.Instance.ShowText("Nice and dry", 1f);
-                hidenItems[0].PickUp();
-                actualState = States.Closed;
+                if (FindInReferences("Akwarium").actualState != States.PhaseThree && FindInReferences("Akwarium").actualState != States.PhaseFour)
+                {
+                    Feedback.Instance.ShowText("Nice and dry", 1f);
+                    hidenItems[0].PickUp();
+                    actualState = States.Closed;
+                    //break;
+                }
+                else
+                    Feedback.Instance.ShowText("Its not going to dry now",2);
+                       //------------------------------ //RESTART-----------------------------------
                 break;
-                /*
-        case States.PhaseFour:
-            break;
-            */
+                    
+                
+        //case States.PhaseThree:
+
+          //  break;
+            
             default:
                 break;
 

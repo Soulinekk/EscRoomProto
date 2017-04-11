@@ -9,7 +9,7 @@ public class Aquarium : InteractivElement {
     { 
         base.Start();
         actualState = States.UnBroken;
-        sequenceSlowerer = 2;
+        sequenceSlowerer = 3;
         activationCheck = true;
         hidenItems[0].gameObject.GetComponent<Collider2D>().enabled = false;
     }
@@ -47,7 +47,7 @@ public class Aquarium : InteractivElement {
                 }
                 else { Feedback.Instance.ShowText("To far to reach by hand", 1.5f); }
                 break;
-            /*  
+            /* 
         case States.PhaseTwo:
             break;
         case States.PhaseThree:

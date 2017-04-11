@@ -4,35 +4,62 @@ using UnityEngine;
 
 public class Drawer : InteractivElement {
 
-    
+    public States closingState;                 //dla gornej i dolnej szuflady sa inne closingState'y
+    private bool closed;
+    //private int waterCount;
     protected override void Start()
     {
-        foreach(UseableElement obj in hidenItems)
-            obj.gameObject.SetActive(false);
+        
         base.Start();
+        closed = false;
+        activationCheck = true;
+        foreach (UseableElement obj in hidenItems)
+            obj.gameObject.SetActive(false);
         actualState = States.Closed;
     }
+    protected override void ActivateSequenceCheck()
+    {
+        if (FindInReferences("water").actualState == closingState && actualState >= States.Open)
+            sequenceOn = true;
+    }
+    protected override void AdvanceSequence()
+    {
+        base.AdvanceSequence();
+        sequenceOn = false;
+    }
+
     protected override IEnumerator OnClickAction()                          // Zachowanie po kliknieciu
     {
         switch (actualState)
         {
             case States.Closed:
-                if (avaibleSprites.Length > 1)
-                { //Open no water
-                    mySpriteRenderer.sprite = avaibleSprites[1];
-                    gameObject.GetComponent<Collider2D>().offset = new Vector2(-0.2f, -0.15f);
-                    actualState = States.Open;
-                    foreach (UseableElement obj in hidenItems)
-                    {
-                        if (!obj.picked)
-                            obj.gameObject.SetActive(true);
-                    }
+                if (!closed && FindInReferences("water").actualState < closingState)
+                {
+                    if (avaibleSprites.Length > 1)
+                    { //Open no water
+                        mySpriteRenderer.sprite = avaibleSprites[1];
+                        gameObject.GetComponent<Collider2D>().offset = new Vector2(-0.2f, -0.15f);
+                        actualState = States.Open;
+                        foreach (UseableElement obj in hidenItems)
+                        {
+                            if (!obj.picked)
+                                obj.gameObject.SetActive(true);
+                        }
 
+                    }
+                }
+                else
+                {
+                    closed = true;
+                    Feedback.Instance.ShowText("Unrechable...", 1.5f);
                 }
                 break;
             default:
                 if (avaibleSprites.Length > 0)
                 {  //Close
+                    sequenceOn = false;
+                    if (FindInReferences("Akwarium").actualState >= closingState)
+                        closed = true;
                     mySpriteRenderer.sprite = avaibleSprites[0];
                     gameObject.GetComponent<Collider2D>().offset = new Vector2(0.16f, 0.16f);
                     actualState = States.Closed;
@@ -43,12 +70,8 @@ public class Drawer : InteractivElement {
                     }
                 }
                 break;
-           
-           /* case States.Open:
-                break;
-            case States.WaterFull:
-                break;
-            case States.WaterOneThird:
+           /*
+            case States.Phase
                 break;
             case States.WaterTwoThirds:
                 break;*/

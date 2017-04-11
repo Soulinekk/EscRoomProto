@@ -9,7 +9,7 @@ public class ElecBox : InteractivElement {
     {
         base.Start();
         actualState = States.UnBroken;
-        activatingState = States.PhaseThree;
+        activatingState = States.PhaseFour;   //akwarium puste; nienajlepszy sposob na ustawienie tego :p ale nie bede kombinowal teraz
         activationCheck = true;
     }
 

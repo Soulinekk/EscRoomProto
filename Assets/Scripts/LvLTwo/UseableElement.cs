@@ -32,7 +32,7 @@ public class UseableElement : MonoBehaviour {
 
     protected virtual IEnumerator OnPickUp()
     {
-        Feedback.Instance.ShowText(pickUpFeedback, 1.5f);
+        //Feedback.Instance.ShowText(pickUpFeedback, 1.5f);
         Inventory.Instance.AddToInventory(this);
         yield return null;
     }

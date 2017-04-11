@@ -20,14 +20,14 @@ public abstract class InteractivElement : MonoBehaviour
 
     [HideInInspector]
 
-    public enum States { Open, Closed, UnBroken, Broken, DarkRoom, PhaseOne, PhaseTwo, PhaseThree, PhaseFour,PhaseFive,PhaseSix };
+    public enum States {Closed, Open, UnBroken, Broken, PhaseOne, PhaseTwo, PhaseThree, PhaseFour,PhaseFive,PhaseSix, DarkRoom };
     public States actualState; 
 
 
 
-    public InteractivElement aktywator;
+    public List<InteractivElement> references = new List<InteractivElement>();
     [SerializeField]
-    protected InteractivElement mainLamp;
+    //protected InteractivElement references[0];
     protected bool activationCheck;
     protected States activatingState;
 
@@ -36,9 +36,8 @@ public abstract class InteractivElement : MonoBehaviour
     public UseableElement[] hidenItems;
     protected virtual void Start()
     {
-        if(aktywator==null)
-            aktywator = this;
-        mainLamp = GameObject.Find("mainLamp").GetComponent<InteractivElement>();
+
+        references.Insert(0, GameObject.Find("mainLamp").GetComponent<InteractivElement>()); //gorna lampa ktora bedzie wplywala na wszystkie obiekty bedzie na poczatku ref
 
         activationCheck = true;
         activatingState = States.PhaseFour;
@@ -52,25 +51,47 @@ public abstract class InteractivElement : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if(mainLamp.actualState == States.Broken && actualState != States.DarkRoom && this != mainLamp)
+        DarkRoomCheck();
+        ActivateSequenceCheck();
+
+        AdvSeqCheck();
+        
+    }
+
+    private void DarkRoomCheck()
+    {
+        if (references[0].actualState == States.Broken && actualState != States.DarkRoom && this != references[0])
         {
             actualState = States.DarkRoom;
             ChangeToDarkRoom();
         }
-        else if (aktywator.actualState == activatingState && activationCheck)
-        {
-            sequenceOn = true;
-            activationCheck = false;
-        }
+    }
 
-        if (Player.interactiveItemClicked && sequenceOn )
+    protected virtual void ActivateSequenceCheck()
+    {
+        
+        if (activationCheck && actualState != States.DarkRoom) //aktywator sekwencji na 1 pozycji listy
         {
-            if(actionClickCount % sequenceSlowerer == 0)
-                 AdvanceSequence();
+            if (references.Count > 1)
+            {
+                if (references[1].actualState == activatingState)
+                {
+                    sequenceOn = true;
+                    activationCheck = false;
+                }
+            }
+        }
+    }
+
+    protected virtual void AdvSeqCheck()
+    {
+        if (Player.interactiveItemClicked && sequenceOn)
+        {
+            if (actionClickCount % sequenceSlowerer == 0)  //seqslowerer jest iloscia klikniec potrzebna do kontynuowania sekwencji
+                AdvanceSequence();                         //np co drugie (2%2 i 4%2 6%2=0) lub co trzecie (3%3 i 6%3 9%3 =0)
 
             actionClickCount++;
         }
-        
     }
 
     protected virtual void ChangeToDarkRoom()
@@ -82,14 +103,15 @@ public abstract class InteractivElement : MonoBehaviour
 
     protected virtual void AdvanceSequence()
     {
-        ChangeState();
-        int i = 0;
-        while(avaibleSprites[i].name != mySpriteRenderer.sprite.name && i<avaibleSprites.Length-2)    
+        ChangeState();  // jezeli obiekt zmienia sie sekwencyjnie zmienia tez swoj state
+
+        int i = 0;          //znajdz aktualny i ustaw kolejny sprite
+        while (avaibleSprites[i].name != mySpriteRenderer.sprite.name && i<avaibleSprites.Length-2)    
         {
             i++;
 
         }
-        mySpriteRenderer.sprite = avaibleSprites[i + 1];
+        mySpriteRenderer.sprite = avaibleSprites[i + 1]; 
        
 
 
@@ -112,7 +134,11 @@ public abstract class InteractivElement : MonoBehaviour
     }
     protected virtual IEnumerator AnimSprites(int startSprite,int endSprite,float time) //override this to move/change interactive items
     {
-        Player.allowInteraction = false; //na czas animacji interakcja nie interaktywny
+        if (!Player.allowInteraction)
+            Player.doubleAnim = true;
+        else
+            Player.allowInteraction = false;
+        //na czas animacji interakcja nie aktywna
         if (startSprite < endSprite)
         {
             for (int i = startSprite + 1; i <= endSprite; i++)
@@ -130,8 +156,10 @@ public abstract class InteractivElement : MonoBehaviour
                 yield return new WaitForSeconds(0.1f);
             }
         }
-
-        Player.allowInteraction = true;
+        if (!Player.doubleAnim)
+            Player.allowInteraction = true;
+        else
+            Player.doubleAnim = false;
         yield return null;
     }
 
@@ -144,23 +172,37 @@ public abstract class InteractivElement : MonoBehaviour
         }
         switch (i)
         {
-            case (2):
+            case (1):
                 actualState = States.PhaseOne;
                 break;
-            case (3):
+            case (2):
                 actualState = States.PhaseTwo;
                 break;
-            case (4):
+            case (3):
                 actualState = States.PhaseThree;
                 break;
-            case (5):
+            case (4):
                 actualState = States.PhaseFour;
+                break;
+            case (5):
+                actualState = States.PhaseFive;
                 break;
 
 
             default:
                 break;
         }
+    }
+    protected InteractivElement FindInReferences(string refName)
+    {
+        foreach(InteractivElement obj in references)
+        {
+            if(obj.gameObject.name== refName)
+            {
+                return obj;
+            }
+        }
+        return this;
     }
 
     

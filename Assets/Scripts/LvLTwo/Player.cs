@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 
     public static bool interactiveItemClicked = false;
     public static bool allowInteraction=true;
+    public static bool doubleAnim = false;
     void Update()                                       //Wysyłanie raycasta z kursora na gre, 
     {                                                   //jezeli jakikolwiek interaktywny element zostanie uderzony, aktywuje sie
         if (Input.GetMouseButtonDown(0))

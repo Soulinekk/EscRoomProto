@@ -33,6 +33,7 @@ public class Lamp : InteractivElement {
                     Feedback.Instance.ShowText("Doesn't fit well, but it works", 1.5f);
                     actualState = States.Open;
                     sequenceOn = true;
+                    Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                 }
                 else
                 {
