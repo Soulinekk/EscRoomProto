@@ -35,7 +35,7 @@ public class Heater : InteractivElement {
                 if (Inventory.Instance.activeElement.objName == "wetSlides")
                 {
                     //mySpriteRenderer.sprite = avaibleSprites[1];
-                    if (FindInReferences("Akwarium").actualState != States.PhaseThree && FindInReferences("Akwarium").actualState != States.PhaseFour)
+                    if (FindInReferences("water").actualState < States.PhaseThree)
                     {
                         actualState = States.Open;
                         Feedback.Instance.ShowText("Good spot for drying", 1.5f);
@@ -54,23 +54,23 @@ public class Heater : InteractivElement {
                 }
                 break;
             case States.Open:
-                Feedback.Instance.ShowText("Still Drying", 1f);
+                Feedback.Instance.ShowText("Still Drying", 2f);
                 break; 
               
         case States.PhaseOne:
-                Feedback.Instance.ShowText("Still Drying",1f);
+                Feedback.Instance.ShowText("Still Drying",2f);
             break;
                 
         case States.PhaseTwo:
-                if (FindInReferences("Akwarium").actualState != States.PhaseThree && FindInReferences("Akwarium").actualState != States.PhaseFour)
+                if (FindInReferences("water").actualState < States.PhaseThree)
                 {
-                    Feedback.Instance.ShowText("Nice and dry", 1f);
+                    Feedback.Instance.ShowText("Nice and dry", 2f);
                     hidenItems[0].PickUp();
                     actualState = States.Closed;
                     //break;
                 }
                 else
-                    Feedback.Instance.ShowText("Its not going to dry now",2);
+                    Feedback.Instance.ShowText("Its not going to dry now",3);
                        //------------------------------ //RESTART-----------------------------------
                 break;
                     

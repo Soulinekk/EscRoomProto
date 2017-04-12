@@ -19,7 +19,7 @@ public class Drawer : InteractivElement {
     }
     protected override void ActivateSequenceCheck()
     {
-        if (FindInReferences("water").actualState == closingState && actualState >= States.Open)
+        if (FindInReferences("water").actualState == closingState-1 && actualState >= States.Open)
             sequenceOn = true;
     }
     protected override void AdvanceSequence()

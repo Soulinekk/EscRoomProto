@@ -6,11 +6,11 @@ PlayerSettings:
   serializedVersion: 11
   productGUID: 3cb97d38ef07ced40a142f88c924a716
   AndroidProfiler: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 2
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: HMPF
   productName: EscRoomProto
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -136,7 +136,7 @@ PlayerSettings:
   protectGraphicsMemory: 0
   useHDRDisplay: 0
   applicationIdentifier:
-    Android: com.Company.ProductName
+    Android: com.HMPF.EscRoomProto
     Standalone: unity.DefaultCompany.EscRoomProto
     Tizen: com.Company.ProductName
     iOS: com.Company.ProductName

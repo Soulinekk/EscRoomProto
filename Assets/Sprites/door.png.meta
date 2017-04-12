@@ -1,16 +1,11 @@
 fileFormatVersion: 2
-guid: e62c381e5a576fb46a87aa8e529dee65
-timeCreated: 1491999935
+guid: b48b96aa1a3d41e47aa7dcc4dd9fb3b8
+timeCreated: 1492000697
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: lampa_0
-    21300002: lampa_1
-    21300004: lampa_2
-    21300006: lampa_3
-    21300008: lampa_4
-    21300010: lampa_5
-    21300012: lampa_6
+    21300000: door_0
+    21300002: door_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -125,93 +120,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lampa_0
+      name: door_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 180
-        width: 93
-        height: 149
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 170
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: lampa_1
+      name: door_1
       rect:
         serializedVersion: 2
-        x: 127
-        y: 180
-        width: 93
-        height: 149
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: lampa_2
-      rect:
-        serializedVersion: 2
-        x: 241
-        y: 180
-        width: 93
-        height: 149
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: lampa_3
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 21
-        width: 93
-        height: 149
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: lampa_4
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 26
-        width: 93
-        height: 149
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: lampa_5
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 25
-        width: 93
-        height: 149
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: lampa_6
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 26
-        width: 93
-        height: 149
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 190
+        y: 0
+        width: 170
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

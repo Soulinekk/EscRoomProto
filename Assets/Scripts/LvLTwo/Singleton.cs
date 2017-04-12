@@ -76,6 +76,6 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     /// </summary>
     public void OnDestroy()
     {
-        applicationIsQuitting = true;
+       // applicationIsQuitting = true;
     }
 }

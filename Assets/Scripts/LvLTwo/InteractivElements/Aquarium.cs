@@ -9,7 +9,7 @@ public class Aquarium : InteractivElement {
     { 
         base.Start();
         actualState = States.UnBroken;
-        sequenceSlowerer = 3;
+        sequenceSlowerer = 2;
         activationCheck = true;
         hidenItems[0].gameObject.GetComponent<Collider2D>().enabled = false;
     }

@@ -8,11 +8,12 @@ public class Lamp : InteractivElement {
         base.Start();
         activationCheck = true;
         actualState = States.Closed;
+        //sequenceSlowerer = 1;
     }
 
     protected override void FixedUpdate()
     {
-        if (actionClickCount == 5)
+        if (actionClickCount == 7)
         {
             sequenceOn = false;
             actualState = States.Broken;
@@ -20,6 +21,10 @@ public class Lamp : InteractivElement {
 
         }
         base.FixedUpdate();
+    }
+    protected override void DarkRoomCheck()
+    {
+       
     }
 
     protected override IEnumerator OnClickAction()
@@ -33,6 +38,7 @@ public class Lamp : InteractivElement {
                     Feedback.Instance.ShowText("Doesn't fit well, but it works", 1.5f);
                     actualState = States.Open;
                     sequenceOn = true;
+                    actionClickCount = 0;
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                 }
                 else
@@ -44,18 +50,8 @@ public class Lamp : InteractivElement {
 
                 Feedback.Instance.ShowText("Looks fine", 0.7f);
                 break;
-            case States.PhaseOne:
+            
 
-                Feedback.Instance.ShowText("Looks like phase one", 0.7f);
-                break;
-            case States.PhaseTwo:
-
-                Feedback.Instance.ShowText("Looks like phase two", 0.7f);
-                break;
-            case States.PhaseThree:
-
-                Feedback.Instance.ShowText("Looks like phase three", 0.7f);
-                break;
 
             case States.Broken:
                 Feedback.Instance.ShowText("meh... still Looks fine", 0.7f);
@@ -70,6 +66,8 @@ public class Lamp : InteractivElement {
         break;
         */
             default:
+                Feedback.Instance.ShowText("It's heating up", 0.7f);
+                sequenceOn = true;
                 break;
 
         }

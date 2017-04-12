@@ -7,7 +7,7 @@ public class Water : InteractivElement {
     {
         base.Start();
         activatingState = States.Broken;
-        sequenceSlowerer = 2;
+        sequenceSlowerer = 1;
         
     }
 
@@ -15,6 +15,9 @@ public class Water : InteractivElement {
     {
         
         base.FixedUpdate();
+        if (actualState == States.PhaseTwo && sequenceSlowerer != 2)
+            sequenceSlowerer = 2;
+        
         if (sequenceOn & actualState == States.UnBroken)
         {
             actualState = States.Broken;
@@ -25,25 +28,27 @@ public class Water : InteractivElement {
 
     protected override void AdvSeqCheck()
     {
-        if(FindInReferences("Akwarium").actualState< States.PhaseThree)
-        switch (actualState)
+        if (FindInReferences("Akwarium").actualState < States.PhaseFive)
         {
-            case States.Broken:
-                if (FindInReferences("DrawerUp").actualState == States.Closed || FindInReferences("DrawerUp").actualState > States.PhaseOne)
-                {
+            switch (actualState)
+            {
+                case States.Broken:
+                    if (FindInReferences("DrawerUp").actualState == States.Closed || FindInReferences("DrawerUp").actualState > States.PhaseTwo)
+                    {
+                        base.AdvSeqCheck();
+                    }
+                    break;
+                case States.PhaseOne:
+                    if (FindInReferences("DrawerDown").actualState == States.Closed || FindInReferences("DrawerDown").actualState > States.PhaseTwo)
+                    {
+                        base.AdvSeqCheck();
+                    }
+                    break;
+                default:
                     base.AdvSeqCheck();
-                }
-                break;
-            case States.PhaseOne:
-                if (FindInReferences("DrawerDown").actualState == States.Closed || FindInReferences("DrawerDown").actualState > States.PhaseTwo)
-                {
-                    base.AdvSeqCheck();
-                }
-                break;
-            default:
-                base.AdvSeqCheck();
-                break;
+                    break;
 
+            }
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,21 +7,37 @@ public class Screen : InteractivElement {
 
     bool screenClicked;
     bool changephase;
+    int slideCounter;
+    bool countClick;
     protected override void Start()
     {
+        
         base.Start();
         screenClicked = false;
         changephase = false;
-        actualState = States.Open;
+        actualState = States.Closed;
         activatingState = States.Open;
-        sequenceSlowerer = 2;
+        sequenceSlowerer = 1;
+        slideCounter = 0;
+        countClick = true;
         
         
     }
     protected override void FixedUpdate()
     {
-        if (FindInReferences("projector").actualState == States.Open)
+        if (FindInReferences("projector").actualState >= States.Open)
         {
+             if (Player.interactiveItemClicked)
+             {
+                 if (countClick)
+                 {
+
+                     StartCoroutine(CountClick());
+
+                 }
+             }
+
+
             if (actualState == States.Closed)
             {
                 actualState = States.PhaseTwo;
@@ -31,51 +48,106 @@ public class Screen : InteractivElement {
                 actualState = States.PhaseOne;
                 mySpriteRenderer.sprite = avaibleSprites[4];
             }
+            
+
         }
 
         if (references[0].actualState == States.Broken)
         {
-            if (actualState == States.Closed || actualState == States.Open)
+           if (Player.interactiveItemClicked)
             {
-                actualState = States.DarkRoom;
-                mySpriteRenderer.sprite = darkRoomSprite;
-            }
-            if(actualState == States.PhaseOne)
-            {
-                actualState = States.PhaseThree;
-                mySpriteRenderer.sprite = avaibleSprites[8];
-            }
-            if (actualState == States.PhaseTwo)
-            {
-                actualState = States.PhaseFour;
-                mySpriteRenderer.sprite = avaibleSprites[11];
-            }
-        }
-
-        if (actualState > States.PhaseTwo) {
-            // ActivateSequenceCheck();
-            if (Player.interactiveItemClicked)
-            {
-                //ChangeState();  // jezeli obiekt zmienia sie sekwencyjnie zmienia tez swoj state
-                if (actionClickCount % sequenceSlowerer == 0)
+                if (FindInReferences("lamp").actualState == States.PhaseFour || FindInReferences("lamp").actualState == States.PhaseFive)
                 {
-                    if (!screenClicked)
+                    //ChangeState();  // jezeli obiekt zmienia sie sekwencyjnie zmienia tez swoj state
+                    if (actionClickCount % sequenceSlowerer == 0)
                     {
-                        ChangeScreenPhase();
-                    }
-                    else
-                    {
-                        changephase = true;
-                    }
+                        if (!screenClicked)
+                        {
+                            ChangeScreenPhase();
+                        }
+                        else
+                        {
+                            changephase = true;
+                        }
 
+                    }
+                }
+                else
+                {
+                    mySpriteRenderer.sprite = darkRoomSprite;
+                    actualState = States.DarkRoom;
                 }
                 actionClickCount++;
                 //np co drugie (2%2 i 4%2 6%2=0) lub co trzecie (3%3 i 6%3 9%3 =0)
             }
+
+            if (actualState == States.Closed || actualState == States.Open)
+            {
+
+                actualState = States.DarkRoom;
+                mySpriteRenderer.sprite = darkRoomSprite;
+            }
+            else
+            {
+                if (FindInReferences("lamp").actualState == States.PhaseFour || FindInReferences("lamp").actualState == States.PhaseFive)
+                {
+                    //Debug.Log(slideCounter);
+                    if (actualState == States.PhaseOne)
+                    {
+
+                        if (slideCounter % 2 == 1)
+                        {
+                            actualState = States.PhaseThree;
+                            mySpriteRenderer.sprite = avaibleSprites[8];
+                        }
+                        else
+                        {
+                            actualState = States.PhaseFive;
+                            mySpriteRenderer.sprite = avaibleSprites[12];
+                            MainDoor.code = true;
+                        }
+
+                    }
+                    else if (actualState == States.PhaseTwo)
+                    {
+
+                        if (slideCounter % 2 == 1)
+                        {
+
+                            actualState = States.PhaseFour;
+                            mySpriteRenderer.sprite = avaibleSprites[11];
+                        }
+                        else
+                        {
+                            actualState = States.PhaseSix;
+                            mySpriteRenderer.sprite = avaibleSprites[15];
+                        }
+                    }
+                }
+                else
+                {
+                    mySpriteRenderer.sprite = darkRoomSprite;
+                }
+            }
         }
+
+       // if (actualState > States.PhaseTwo) {
+            // ActivateSequenceCheck();
+            
+      //  }
     }
+
+    private IEnumerator CountClick()
+    {
+        countClick = false;
+        slideCounter += 1;
+        yield return new WaitForFixedUpdate();
+        countClick = true;
+    }
+
     protected override IEnumerator AnimSprites(int startSprite, int endSprite, float time)
     {
+       
         yield return base.AnimSprites(startSprite, endSprite, time);
         yield return new WaitForFixedUpdate();
         if (changephase)
@@ -88,6 +160,7 @@ public class Screen : InteractivElement {
 
     void ChangeScreenPhase()
     {
+        
         if (actualState == States.PhaseThree)
         {
             actualState = States.PhaseFive;
@@ -114,8 +187,9 @@ public class Screen : InteractivElement {
     {
         //if (isInteractive)
         // {
-
-        screenClicked = true;
+        if (actualState != States.DarkRoom)
+        {
+            screenClicked = true;
             switch (actualState)
             {
                 case States.Open:                                   //mainlight on , no slides
@@ -141,7 +215,7 @@ public class Screen : InteractivElement {
                         StartCoroutine(AnimSprites(4, 7, 0.15f));
                         actualState = States.PhaseTwo;
 
-                    }          
+                    }
 
                     break;
                 case States.PhaseTwo:
@@ -190,6 +264,7 @@ public class Screen : InteractivElement {
 
 
             }
+        }
        // }
         
 

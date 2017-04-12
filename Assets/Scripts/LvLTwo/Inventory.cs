@@ -11,10 +11,12 @@ public class Inventory : Singleton<Inventory> {
     [HideInInspector]
     public UseableElement activeElement;
     public Sprite noItem;
+    
 
 
     void Awake()
     {
+        ///DontDestroyOnLoad(this);
         inventory = new List<UseableElement>();
         invButtons[0].onClick.AddListener(() => { this.SetActiveElement(0); });
         invButtons[1].onClick.AddListener(() => { this.SetActiveElement(1); });
@@ -32,6 +34,7 @@ public class Inventory : Singleton<Inventory> {
 
 
         invButtons[inventory.Count - 1].GetComponentInChildren<Image>().sprite = item.icon;
+        
         invButtons[inventory.Count - 1].interactable = true;
         if (item.objName != "hand")
         {
@@ -46,7 +49,11 @@ public class Inventory : Singleton<Inventory> {
         if (i < 6)
         {
                 activeElement = inventory[i];
-            
+            if (i != 0)
+                invButtons[0].GetComponentInChildren<Image>().sprite = invButtons[i].GetComponentInChildren<Image>().sprite;
+            else
+                invButtons[0].GetComponentInChildren<Image>().sprite = noItem;
+
             Debug.Log(activeElement.objName);
         }
     }

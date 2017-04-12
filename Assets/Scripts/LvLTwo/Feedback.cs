@@ -14,9 +14,12 @@ public class Feedback : Singleton<Feedback>
     }
     public void ShowText(string s,float t)
     {
-        feedPanel.SetActive(true);
-        feedText.text = s;
-        StartCoroutine(ShowTextC(t));
+        //if (feedText.text == "")
+       // {
+            feedPanel.SetActive(true);
+            feedText.text = s;
+            StartCoroutine(ShowTextC(t));
+       // }
         
     }
     private IEnumerator ShowTextC(float time)

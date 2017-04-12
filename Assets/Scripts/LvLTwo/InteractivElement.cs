@@ -61,7 +61,7 @@ public abstract class InteractivElement : MonoBehaviour
         
     }
 
-    private void DarkRoomCheck()
+    protected virtual void DarkRoomCheck()
     {
         if (references[0].actualState == States.Broken && actualState != States.DarkRoom && this != references[0])
         {
