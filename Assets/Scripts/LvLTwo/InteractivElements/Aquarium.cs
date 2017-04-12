@@ -24,11 +24,12 @@ public class Aquarium : InteractivElement {
         switch (actualState)
         {
             case States.UnBroken:
-                Debug.Log(Inventory.Instance.activeElement.objName);
+               // Debug.Log(Inventory.Instance.activeElement.objName);
                 if (Inventory.Instance.activeElement.objName == "mlotek")
                 {
-                        //mySpriteRenderer.sprite = avaibleSprites[1];
-                        actualState = States.Broken;
+                    feedbackOnly = false;
+                    //mySpriteRenderer.sprite = avaibleSprites[1];
+                    actualState = States.Broken;
                         sequenceOn = true;
                     
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
@@ -38,14 +39,26 @@ public class Aquarium : InteractivElement {
             default:
                 if (Inventory.Instance.activeElement.objName == "net")
                 {
-                        actualState = States.PhaseOne;
-                        isInteractive = false;
+                    feedbackOnly = false;
+                       // actualState = States.PhaseOne;
+                        //isInteractive = false;
                         hidenItems[0].PickUp();
-                        //Inventory.Instance.AddToInventory(hidenItems[0]);
+                    hidenItems = new UseableElement[0];                        //Inventory.Instance.AddToInventory(hidenItems[0]);
 
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                 }
-                else { Feedback.Instance.ShowText("To far to reach by hand", 1.5f); }
+                else {
+                    if (hidenItems.Length < 1)
+                    {
+                        feedbackOnly = true;
+                        Feedback.Instance.ShowText("nothing else is here",1.5f);
+                    }
+                    else
+                    {
+                        feedbackOnly = true;
+                        Feedback.Instance.ShowText("To far to reach by hand", 1.5f);
+                    }
+                }
                 break;
             /* 
         case States.PhaseTwo:

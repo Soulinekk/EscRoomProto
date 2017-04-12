@@ -34,6 +34,7 @@ public class Heater : InteractivElement {
                 //Debug.Log(Inventory.Instance.activeElement.objName);
                 if (Inventory.Instance.activeElement.objName == "wetSlides")
                 {
+                    feedbackOnly = false;
                     //mySpriteRenderer.sprite = avaibleSprites[1];
                     if (FindInReferences("water").actualState < States.PhaseThree)
                     {
@@ -45,32 +46,41 @@ public class Heater : InteractivElement {
                         Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                     }
                     else {
+                        feedbackOnly = true;
                         Feedback.Instance.ShowText("To late for that!", 2f);
                     }
                 }
                 else
                 {
+                    feedbackOnly = true;
                     Feedback.Instance.ShowText("mhhhh... warm", 1.5f);
                 }
                 break;
             case States.Open:
+                feedbackOnly = true;
                 Feedback.Instance.ShowText("Still Drying", 2f);
                 break; 
               
         case States.PhaseOne:
+                feedbackOnly = true;
                 Feedback.Instance.ShowText("Still Drying",2f);
             break;
                 
         case States.PhaseTwo:
+
                 if (FindInReferences("water").actualState < States.PhaseThree)
                 {
+                    feedbackOnly = false;
                     Feedback.Instance.ShowText("Nice and dry", 2f);
                     hidenItems[0].PickUp();
                     actualState = States.Closed;
                     //break;
                 }
                 else
-                    Feedback.Instance.ShowText("Its not going to dry now",3);
+                {
+                    feedbackOnly = true;
+                    Feedback.Instance.ShowText("Its not going to dry now", 3);
+                }
                        //------------------------------ //RESTART-----------------------------------
                 break;
                     

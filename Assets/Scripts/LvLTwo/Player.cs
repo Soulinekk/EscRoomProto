@@ -24,7 +24,7 @@ public class Player : MonoBehaviour {
                     {
                     if (intItem.isInteractive)
                     {
-                        StartCoroutine(CountClick());
+                        StartCoroutine(CountClick(intItem));
                        
                         intItem.OnClickBehaviour();
                         Inventory.Instance.SetActiveElement(0);
@@ -47,12 +47,16 @@ public class Player : MonoBehaviour {
         
     }
 
-    private IEnumerator CountClick()
+    private IEnumerator CountClick(InteractivElement item)
     {
-        interactiveItemClicked = true;
-        //Debug.Log("action!");
         yield return new WaitForFixedUpdate();
-        interactiveItemClicked = false;
+        if (!item.feedbackOnly)
+        {
+            interactiveItemClicked = true;
+            //Debug.Log("action!");
+            yield return new WaitForFixedUpdate();
+            interactiveItemClicked = false;
+        }
         yield return null;
     }
 }

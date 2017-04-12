@@ -8,7 +8,7 @@ public abstract class InteractivElement : MonoBehaviour
     //Its copy of interactiveItem.cs from 1lvl for clear 2lvl hierarchy 
     [HideInInspector]
     public bool isInteractive;
-
+    public bool feedbackOnly;
     protected Collider c;
     protected SpriteRenderer mySpriteRenderer;
     public Sprite darkRoomSprite;
@@ -38,7 +38,7 @@ public abstract class InteractivElement : MonoBehaviour
     {
 
         references.Insert(0, GameObject.Find("mainLamp").GetComponent<InteractivElement>()); //gorna lampa ktora bedzie wplywala na wszystkie obiekty bedzie na poczatku ref
-
+        feedbackOnly = false;
         activationCheck = true;
         activatingState = States.PhaseFour;
         sequenceSlowerer = 1;

@@ -9,16 +9,18 @@ public class MainDoor : InteractivElement
     {
         base.Start();
         activationCheck = false;
-        code = false;
+        code = false; feedbackOnly = true;
     }
     protected override IEnumerator OnClickAction()
     {
         if (code)
         {
+            feedbackOnly = true;
             Feedback.Instance.ShowText("CONGRATULATION", 10);
         }
         else
         {
+            feedbackOnly = true;
             Feedback.Instance.ShowText("I Need to find code",2f);
         }
         yield return null; 

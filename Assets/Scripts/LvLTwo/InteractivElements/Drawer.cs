@@ -50,6 +50,7 @@ public class Drawer : InteractivElement {
                 }
                 else
                 {
+                    feedbackOnly = true;
                     closed = true;
                     Feedback.Instance.ShowText("Unrechable...", 1.5f);
                 }

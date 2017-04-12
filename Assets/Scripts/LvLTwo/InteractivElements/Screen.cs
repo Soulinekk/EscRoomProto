@@ -54,12 +54,13 @@ public class Screen : InteractivElement {
 
         if (references[0].actualState == States.Broken)
         {
+            isInteractive = false;
            if (Player.interactiveItemClicked)
             {
                 if (FindInReferences("lamp").actualState == States.PhaseFour || FindInReferences("lamp").actualState == States.PhaseFive)
                 {
                     //ChangeState();  // jezeli obiekt zmienia sie sekwencyjnie zmienia tez swoj state
-                    if (actionClickCount % sequenceSlowerer == 0)
+                    /*if (actionClickCount % sequenceSlowerer == 0)
                     {
                         if (!screenClicked)
                         {
@@ -70,7 +71,7 @@ public class Screen : InteractivElement {
                             changephase = true;
                         }
 
-                    }
+                    }*/
                 }
                 else
                 {
@@ -214,6 +215,7 @@ public class Screen : InteractivElement {
                     {
                         StartCoroutine(AnimSprites(4, 7, 0.15f));
                         actualState = States.PhaseTwo;
+                        Feedback.Instance.ShowText("It's to bright to see anything", 1.5f);
 
                     }
 
@@ -223,6 +225,7 @@ public class Screen : InteractivElement {
                     {
                         StartCoroutine(AnimSprites(7, 4, 0.15f));
                         actualState = States.PhaseOne;
+                        Feedback.Instance.ShowText("It's to bright to see anything", 1.5f);
 
                     }
                     break;

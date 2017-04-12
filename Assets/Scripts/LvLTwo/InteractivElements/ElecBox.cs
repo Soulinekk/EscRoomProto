@@ -11,6 +11,7 @@ public class ElecBox : InteractivElement {
         actualState = States.UnBroken;
         activatingState = States.PhaseFour;   //akwarium puste; nienajlepszy sposob na ustawienie tego :p ale nie bede kombinowal teraz
         activationCheck = true;
+        feedbackOnly = true;
     }
 
     protected override void FixedUpdate()
@@ -41,9 +42,11 @@ public class ElecBox : InteractivElement {
             switch (actualState)
             {
                 case States.UnBroken:
+                    
                     Feedback.Instance.ShowText("Looks important", 1.5f);
                     break;
                 case States.Broken:
+                    feedbackOnly = true;
                     Feedback.Instance.ShowText("can't see shit",1f);
                     break;
                 default:
