@@ -15,7 +15,7 @@ public class Screen : InteractivElement {
         base.Start();
         screenClicked = false;
         changephase = false;
-        actualState = States.Closed;
+        actualState = States.Open;
         activatingState = States.Open;
         sequenceSlowerer = 1;
         slideCounter = 0;
