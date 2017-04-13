@@ -50,24 +50,26 @@ public class Lamp : InteractivElement {
                 break;
             case States.Open:
                 feedbackOnly = true;
-                Feedback.Instance.ShowText("Looks fine", 0.7f);
+                Feedback.Instance.ShowText("it need to heat up to give some light", 0.7f);
                 break;
             
 
 
             case States.Broken:
                 feedbackOnly = true;
-                Feedback.Instance.ShowText("meh... still Looks fine", 0.7f);
+                Feedback.Instance.ShowText("well... i need new bulb", 0.7f);
 
                 break;
-            /*
-            case States.PhaseTwo:
-                
+            
+            case States.PhaseFive:
+                Feedback.Instance.ShowText("light comming out, but bulb its still heating up",2f);
+
                 break;
             
     case States.PhaseFour:
-        break;
-        */
+                Feedback.Instance.ShowText("Heated up, light comming out",2f);
+                break;
+        
             default:
                 Feedback.Instance.ShowText("It's heating up", 0.7f);
                 sequenceOn = true;

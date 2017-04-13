@@ -39,7 +39,7 @@ public class Water : InteractivElement {
                     }
                     break;
                 case States.PhaseOne:
-                    if (FindInReferences("DrawerDown").actualState == States.Closed || FindInReferences("DrawerDown").actualState > States.PhaseTwo)
+                    if (FindInReferences("DrawerDown").actualState == States.Closed || FindInReferences("DrawerDown").actualState > States.PhaseThree)
                     {
                         base.AdvSeqCheck();
                     }
