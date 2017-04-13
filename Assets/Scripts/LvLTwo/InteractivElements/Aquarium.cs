@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Aquarium : InteractivElement {
 
-    
+    public static bool sequenceStarted;
     protected override void Start()
-    { 
+    {
+        sequenceStarted = false;
         base.Start();
         actualState = States.UnBroken;
         sequenceSlowerer = 2;
@@ -27,6 +28,7 @@ public class Aquarium : InteractivElement {
                // Debug.Log(Inventory.Instance.activeElement.objName);
                 if (Inventory.Instance.activeElement.objName == "mlotek")
                 {
+                    sequenceStarted = true;
                     feedbackOnly = false;
                     //mySpriteRenderer.sprite = avaibleSprites[1];
                     actualState = States.Broken;

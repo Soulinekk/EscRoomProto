@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractive: 0
+  feedbackOnly: 0
   darkRoomSprite: {fileID: 0}
   actualState: 0
   references:
@@ -244,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractive: 0
+  feedbackOnly: 0
   darkRoomSprite: {fileID: 21300012, guid: bd403690df8091e468879758a092e089, type: 3}
   actualState: 0
   references: []
@@ -790,6 +792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractive: 0
+  feedbackOnly: 0
   darkRoomSprite: {fileID: 21300032, guid: 8a133d781c2f45c4783b03f226fb2569, type: 3}
   actualState: 0
   references:
@@ -987,6 +990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractive: 0
+  feedbackOnly: 0
   darkRoomSprite: {fileID: 21300010, guid: f0c2bdf5944912848a760ce2ea75141e, type: 3}
   actualState: 0
   references:
@@ -1045,6 +1049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractive: 0
+  feedbackOnly: 0
   darkRoomSprite: {fileID: 21300004, guid: 86ffaeec3ae72fd4ea95f2405b574f3d, type: 3}
   actualState: 0
   references:
@@ -1162,6 +1167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractive: 0
+  feedbackOnly: 0
   darkRoomSprite: {fileID: 21300014, guid: a91c03dee99b03a4ba941e9955e0454c, type: 3}
   actualState: 0
   references:
@@ -1231,7 +1237,7 @@ GameObject:
   - component: {fileID: 703851821}
   - component: {fileID: 703851822}
   m_Layer: 12
-  m_Name: mlotek
+  m_Name: hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1385,6 +1391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractive: 0
+  feedbackOnly: 0
   darkRoomSprite: {fileID: 21300004, guid: 102bfece4ea863c41b06bcd68a6b801c, type: 3}
   actualState: 0
   references: []
@@ -1611,6 +1618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc83b82c1cc761f4da476d0c619b2eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backButton: {fileID: 891494293}
 --- !u!4 &826811109
 Transform:
   m_ObjectHideFlags: 0
@@ -1975,6 +1983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractive: 0
+  feedbackOnly: 0
   darkRoomSprite: {fileID: 21300004, guid: e77973ce78f7f0a46b1d4e84f34bc604, type: 3}
   actualState: 0
   references:
@@ -2097,7 +2106,7 @@ GameObject:
   - component: {fileID: 1213338176}
   - component: {fileID: 1213338179}
   m_Layer: 0
-  m_Name: wetSlides
+  m_Name: wet slides
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2312,6 +2321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractive: 0
+  feedbackOnly: 0
   darkRoomSprite: {fileID: 21300002, guid: b48b96aa1a3d41e47aa7dcc4dd9fb3b8, type: 3}
   actualState: 0
   references: []
@@ -2886,6 +2896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractive: 0
+  feedbackOnly: 0
   darkRoomSprite: {fileID: 21300010, guid: f0c2bdf5944912848a760ce2ea75141e, type: 3}
   actualState: 0
   references:
@@ -3022,7 +3033,7 @@ GameObject:
   - component: {fileID: 1644930633}
   - component: {fileID: 1644930634}
   m_Layer: 0
-  m_Name: net
+  m_Name: fishing net
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3133,7 +3144,7 @@ GameObject:
   - component: {fileID: 1658579935}
   - component: {fileID: 1658579937}
   m_Layer: 12
-  m_Name: zarowka
+  m_Name: bulb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3513,6 +3524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractive: 0
+  feedbackOnly: 0
   darkRoomSprite: {fileID: 0}
   actualState: 0
   references: []
@@ -3591,7 +3603,7 @@ GameObject:
   - component: {fileID: 1900637518}
   - component: {fileID: 1900637520}
   m_Layer: 0
-  m_Name: drySlides
+  m_Name: dry slides
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

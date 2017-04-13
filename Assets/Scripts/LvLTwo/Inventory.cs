@@ -45,7 +45,7 @@ public class Inventory : Singleton<Inventory> {
     }
     public void SetActiveElement(int i)
     {
-        Debug.Log(i);
+        //Debug.Log(i);
         if (i < 6)
         {
                 activeElement = inventory[i];
@@ -54,7 +54,9 @@ public class Inventory : Singleton<Inventory> {
             else
                 invButtons[0].GetComponentInChildren<Image>().sprite = noItem;
 
-            Debug.Log(activeElement.objName);
+            if(i!=0)
+                Feedback.Instance.ShowText(activeElement.name, 2f);
+            //Debug.Log(activeElement.objName);
         }
     }
     public void RemoveFromInventory(UseableElement item)

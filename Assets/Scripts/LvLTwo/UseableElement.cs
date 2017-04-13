@@ -34,6 +34,7 @@ public class UseableElement : MonoBehaviour {
     {
         //Feedback.Instance.ShowText(pickUpFeedback, 1.5f);
         Inventory.Instance.AddToInventory(this);
+        Feedback.Instance.ShowText(this.name, 2f);
         yield return null;
     }
 }

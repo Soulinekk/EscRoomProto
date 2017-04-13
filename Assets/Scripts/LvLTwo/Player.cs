@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
     public static bool interactiveItemClicked = false;
     public static bool allowInteraction=true;
     public static bool doubleAnim = false;
+    public Button backButton;
     void Update()                                       //Wysyłanie raycasta z kursora na gre, 
     {                                                   //jezeli jakikolwiek interaktywny element zostanie uderzony, aktywuje sie
         if (Input.GetMouseButtonDown(0))
@@ -49,7 +51,14 @@ public class Player : MonoBehaviour {
 
     private IEnumerator CountClick(InteractivElement item)
     {
+        // cam shift
         yield return new WaitForFixedUpdate();
+        if (!item.feedbackOnly && Aquarium.sequenceStarted)
+        {
+            backButton.onClick.Invoke();
+            yield return new WaitForSeconds(0.4f);
+        }
+        
         if (!item.feedbackOnly)
         {
             interactiveItemClicked = true;
