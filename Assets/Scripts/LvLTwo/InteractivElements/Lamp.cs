@@ -36,7 +36,7 @@ public class Lamp : InteractivElement {
                 if (Inventory.Instance.activeElement.objName == "bulb")
                 {
                     feedbackOnly = false;
-                    Feedback.Instance.ShowText("Doesn't fit well, but it works", 1.5f);
+                    Feedback.Instance.ShowText("Doesn't fit well, but it works", 1.5f,true);
                     actualState = States.Open;
                     sequenceOn = true;
                     actionClickCount = 0;
@@ -45,40 +45,50 @@ public class Lamp : InteractivElement {
                 else
                 {
                     feedbackOnly = true;
-                    Feedback.Instance.ShowText("That's a lamp", 1f);
+                    Feedback.Instance.ShowText("That's a lamp", 1f,true);
                 }
                 break;
             case States.Open:
                 feedbackOnly = true;
-                Feedback.Instance.ShowText("it need to heat up to give some light", 0.7f);
+                Feedback.Instance.ShowText("it need to heat up to give some light", 2f,true);
                 break;
             
 
 
             case States.Broken:
                 feedbackOnly = true;
-                Feedback.Instance.ShowText("well... i need new bulb", 0.7f);
+                Feedback.Instance.ShowText("well... i need new bulb", 1.5f,true);
 
                 break;
             
             case States.PhaseFive:
                 feedbackOnly = true;
-                Feedback.Instance.ShowText("light comming out, but bulb its still heating up",2f);
+                Feedback.Instance.ShowText("light comming out, but bulb its still heating up",2f,true);
 
                 break;
             
     case States.PhaseFour:
                 feedbackOnly = true;
-                Feedback.Instance.ShowText("Heated up, light comming out",2f);
+                Feedback.Instance.ShowText("Heated up, light comming out",2f,true);
                 break;
         
             default:
                 feedbackOnly = true;
-                Feedback.Instance.ShowText("It's heating up", 0.7f);
+                Feedback.Instance.ShowText("It's heating up", 1f,true);
                 sequenceOn = true;
                 break;
 
         }
         return base.OnClickAction();
+    }
+    protected override void AdvanceSequence()
+    {
+        base.AdvanceSequence();
+        if (actualState == States.PhaseThree)
+            Feedback.Instance.ShowText("bulb heated up theres light coming out", 2f, false);
+        if (actualState == States.PhaseFour)
+            Feedback.Instance.ShowText("bulb looks like its about to break", 2f, false);
+        if (actualState == States.PhaseFive)
+            Feedback.Instance.ShowText("bulb in lamp broke, hope it wasnt important", 2f, false);
     }
 }

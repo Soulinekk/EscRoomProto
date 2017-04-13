@@ -35,6 +35,8 @@ public class Water : InteractivElement {
                 case States.Broken:
                     if (FindInReferences("DrawerUp").actualState == States.Closed || FindInReferences("DrawerUp").actualState > States.PhaseTwo)
                     {
+                        if(Player.interactiveItemClicked)
+                            //Feedback.Instance.ShowText("Water still pouring",1.5f,false);
                         base.AdvSeqCheck();
                     }
                     break;
@@ -42,6 +44,16 @@ public class Water : InteractivElement {
                     if (FindInReferences("DrawerDown").actualState == States.Closed || FindInReferences("DrawerDown").actualState > States.PhaseThree)
                     {
                         base.AdvSeqCheck();
+                        if (Player.interactiveItemClicked)
+                            Feedback.Instance.ShowText("Water is on the Floor!", 1.5f,false);
+                    }
+                    break;
+                case States.PhaseTwo:
+                    {
+                        base.AdvSeqCheck();
+                        if (Player.interactiveItemClicked)
+                            Feedback.Instance.ShowText("The lights will go off, if water get to the electric box!", 1.5f, false);
+                        
                     }
                     break;
                 default:

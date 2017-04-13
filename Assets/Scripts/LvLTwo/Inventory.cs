@@ -55,7 +55,7 @@ public class Inventory : Singleton<Inventory> {
                 invButtons[0].GetComponentInChildren<Image>().sprite = noItem;
 
             if(i!=0)
-                Feedback.Instance.ShowText(activeElement.name, 2f);
+                Feedback.Instance.ShowText(activeElement.name, 0.5f,true);
             //Debug.Log(activeElement.objName);
         }
     }

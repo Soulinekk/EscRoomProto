@@ -16,12 +16,12 @@ public class MainDoor : InteractivElement
         if (code)
         {
             feedbackOnly = true;
-            Feedback.Instance.ShowText("CONGRATULATION", 10);
+            Feedback.Instance.ShowText("CONGRATULATION", 10f,true);
         }
         else
         {
             feedbackOnly = true;
-            Feedback.Instance.ShowText("I Need to find code",2f);
+            Feedback.Instance.ShowText("I Need to find code",2f,true);
         }
         yield return null; 
     }

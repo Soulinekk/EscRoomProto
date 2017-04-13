@@ -13,9 +13,13 @@ public class UseableElement : MonoBehaviour {
 
     protected virtual void Start()
     {
+        //showItemParticles = gameObject.GetComponentInChildren<ParticleSystem>().gameObject;
+        
         mainLamp = GameObject.Find("mainLamp").GetComponent<InteractivElement>();
         picked = false;
     }
+    
+    
     protected void FixedUpdate()
     {
         if (mainLamp.actualState == InteractivElement.States.Broken)
@@ -34,7 +38,7 @@ public class UseableElement : MonoBehaviour {
     {
         //Feedback.Instance.ShowText(pickUpFeedback, 1.5f);
         Inventory.Instance.AddToInventory(this);
-        Feedback.Instance.ShowText(this.name, 2f);
+        Feedback.Instance.ShowText(this.name, 1f,true);
         yield return null;
     }
 }

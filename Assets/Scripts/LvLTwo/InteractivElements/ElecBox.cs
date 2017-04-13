@@ -43,11 +43,11 @@ public class ElecBox : InteractivElement {
             {
                 case States.UnBroken:
                     
-                    Feedback.Instance.ShowText("Looks important", 1.5f);
+                    Feedback.Instance.ShowText("Looks important", 1.5f,true);
                     break;
                 case States.Broken:
                     feedbackOnly = true;
-                    Feedback.Instance.ShowText("can't see shit",1f);
+                    Feedback.Instance.ShowText("can't see shit",1f,true);
                     break;
                 default:
 

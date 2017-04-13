@@ -52,7 +52,7 @@ public class Drawer : InteractivElement {
                 {
                     feedbackOnly = true;
                     closed = true;
-                    Feedback.Instance.ShowText("Unrechable...", 1.5f);
+                    Feedback.Instance.ShowText("Unrechable...", 1.5f,true);
                 }
                 break;
             default:

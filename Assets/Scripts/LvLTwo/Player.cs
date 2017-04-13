@@ -49,6 +49,23 @@ public class Player : MonoBehaviour {
         
     }
 
+    public void Wait()
+    {
+        StartCoroutine(WaitC());
+    }
+
+    private IEnumerator WaitC()
+    {
+        if (Aquarium.sequenceStarted)
+        {
+            backButton.onClick.Invoke();
+            yield return new WaitForSeconds(0.4f);
+        }
+        interactiveItemClicked = true;
+        yield return new WaitForFixedUpdate();
+        interactiveItemClicked = false;
+    }
+
     private IEnumerator CountClick(InteractivElement item)
     {
         // cam shift

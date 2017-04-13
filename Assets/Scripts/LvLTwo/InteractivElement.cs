@@ -133,7 +133,7 @@ public abstract class InteractivElement : MonoBehaviour
         //c.transform.position = new Vector3(c.transform.position.x, c.transform.position.y + 5, c.transform.position.z); 
         if (actualState == States.DarkRoom)
         {
-            Feedback.Instance.ShowText("Can't see anything up there",1.5f);
+            Feedback.Instance.ShowText("Can't see anything up there",1.5f,true);
         }
 
         yield return null; 

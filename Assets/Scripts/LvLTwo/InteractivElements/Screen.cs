@@ -105,7 +105,9 @@ public class Screen : InteractivElement {
                         {
                             actualState = States.PhaseFive;
                             mySpriteRenderer.sprite = avaibleSprites[12];
-                            MainDoor.code = true;
+                            //get code
+                            Feedback.Instance.ShowText("yay got the code !!1!", 3f, true);
+                            Inventory.Instance.AddToInventory(hidenItems[0]);
                         }
 
                     }
@@ -215,7 +217,7 @@ public class Screen : InteractivElement {
                     {
                         StartCoroutine(AnimSprites(4, 7, 0.15f));
                         actualState = States.PhaseTwo;
-                        Feedback.Instance.ShowText("It's to bright to see anything", 1.5f);
+                        Feedback.Instance.ShowText("It's to bright to see anything", 1.5f,false);
 
                     }
 
@@ -225,7 +227,7 @@ public class Screen : InteractivElement {
                     {
                         StartCoroutine(AnimSprites(7, 4, 0.15f));
                         actualState = States.PhaseOne;
-                        Feedback.Instance.ShowText("It's to bright to see anything", 1.5f);
+                        Feedback.Instance.ShowText("It's to bright to see anything", 1.5f,false);
 
                     }
                     break;

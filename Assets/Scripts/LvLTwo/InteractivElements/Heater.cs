@@ -15,7 +15,7 @@ public class Heater : InteractivElement {
     }
     protected override void FixedUpdate()
     {
-        if (actionClickCount == 2)
+        if (actionClickCount == 3)
         {
             sequenceOn = false;
             actualState = States.PhaseTwo;
@@ -39,7 +39,7 @@ public class Heater : InteractivElement {
                     if (FindInReferences("water").actualState < States.PhaseThree)
                     {
                         actualState = States.Open;
-                        Feedback.Instance.ShowText("Good spot for drying", 1.5f);
+                        Feedback.Instance.ShowText("Good spot for drying", 1.5f,false);
                         hidenItems[0].gameObject.SetActive(true);
                         sequenceOn = true;
                         actionClickCount = 0;
@@ -47,23 +47,23 @@ public class Heater : InteractivElement {
                     }
                     else {
                         feedbackOnly = true;
-                        Feedback.Instance.ShowText("To late for that!", 2f);
+                        Feedback.Instance.ShowText("To late for that!", 2f,true);
                     }
                 }
                 else
                 {
                     feedbackOnly = true;
-                    Feedback.Instance.ShowText("mhhhh... warm", 1.5f);
+                    Feedback.Instance.ShowText("mhhhh... warm", 1.5f,false);
                 }
                 break;
             case States.Open:
                 feedbackOnly = true;
-                Feedback.Instance.ShowText("Still Drying", 2f);
+                Feedback.Instance.ShowText("Still Drying", 2f,true);
                 break; 
               
         case States.PhaseOne:
                 feedbackOnly = true;
-                Feedback.Instance.ShowText("Still Drying",2f);
+                Feedback.Instance.ShowText("Still Drying",2f,true);
             break;
                 
         case States.PhaseTwo:
@@ -71,7 +71,7 @@ public class Heater : InteractivElement {
                 if (FindInReferences("water").actualState < States.PhaseThree)
                 {
                     feedbackOnly = false;
-                    Feedback.Instance.ShowText("Nice and dry", 2f);
+                    Feedback.Instance.ShowText("Nice and dry", 2f,true);
                     hidenItems[0].PickUp();
                     actualState = States.Closed;
                     //break;
@@ -79,7 +79,7 @@ public class Heater : InteractivElement {
                 else
                 {
                     feedbackOnly = true;
-                    Feedback.Instance.ShowText("Its not going to dry now", 3);
+                    Feedback.Instance.ShowText("Its not going to dry now", 3,true);
                 }
                        //------------------------------ //RESTART-----------------------------------
                 break;
@@ -104,5 +104,12 @@ public class Heater : InteractivElement {
         // yield return base.AnimSprites(startSprite, endSprite,time);
         // yield return AnimSprites(endSprite, startSprite,time);
         yield return null;
+    }
+    protected override void AdvanceSequence()
+    {
+        
+        base.AdvanceSequence();
+        if (actualState == States.PhaseOne)
+            Feedback.Instance.ShowText("I think slides should be dry now.", 2f, false);
     }
 }

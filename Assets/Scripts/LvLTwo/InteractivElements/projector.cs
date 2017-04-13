@@ -19,7 +19,7 @@ public class projector : InteractivElement {
                 if (Inventory.Instance.activeElement.objName == "drySlides")
                 {
                     feedbackOnly = false;
-                    Feedback.Instance.ShowText("This goes there", 1.5f);
+                    Feedback.Instance.ShowText("This goes there", 1.5f,false);
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                     actualState = States.Open;
                     sequenceOn = true;
@@ -27,17 +27,17 @@ public class projector : InteractivElement {
                 else if (Inventory.Instance.activeElement.objName == "wetSlides")
                 {
                     feedbackOnly = true;
-                    Feedback.Instance.ShowText("Slides are still wet", 1.5f);
+                    Feedback.Instance.ShowText("Slides are still wet", 1.5f,true);
                 }
                 else
                 {
                     feedbackOnly = true;
-                    Feedback.Instance.ShowText("That's not a lamp", 1f);
+                    Feedback.Instance.ShowText("That's not a lamp", 1f,true);
                 }
                 break;
             case States.Open:
                 feedbackOnly = true;
-                Feedback.Instance.ShowText("Time for a slide show", 0.7f);
+                Feedback.Instance.ShowText("Time for a slide show", 1.5f,true);
                 break;
             /*
             case States.PhaseTwo:

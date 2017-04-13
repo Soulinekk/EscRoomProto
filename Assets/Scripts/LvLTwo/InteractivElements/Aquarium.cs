@@ -31,12 +31,13 @@ public class Aquarium : InteractivElement {
                     sequenceStarted = true;
                     feedbackOnly = false;
                     //mySpriteRenderer.sprite = avaibleSprites[1];
+                    Feedback.Instance.ShowText("Aquarium broke whole! water is pouring out!", 2f, false);
                     actualState = States.Broken;
                         sequenceOn = true;
                     
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                 }
-                else { Feedback.Instance.ShowText("There's glass on top",1.5f); }
+                else { Feedback.Instance.ShowText("There's glass on top",1.5f,true); }
                 break;
             default:
                 if (Inventory.Instance.activeElement.objName == "net")
@@ -46,19 +47,19 @@ public class Aquarium : InteractivElement {
                         //isInteractive = false;
                         hidenItems[0].PickUp();
                     hidenItems = new UseableElement[0];                        //Inventory.Instance.AddToInventory(hidenItems[0]);
-
+                    Feedback.Instance.ShowText("i need to dry these slides", 2f, false);
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                 }
                 else {
                     if (hidenItems.Length < 1)
                     {
                         feedbackOnly = true;
-                        Feedback.Instance.ShowText("nothing else is here",1.5f);
+                        Feedback.Instance.ShowText("nothing else is here",1.5f,true);
                     }
                     else
                     {
                         feedbackOnly = true;
-                        Feedback.Instance.ShowText("To far to reach by hand", 1.5f);
+                        Feedback.Instance.ShowText("To far to reach by hand", 1.5f,true);
                     }
                 }
                 break;

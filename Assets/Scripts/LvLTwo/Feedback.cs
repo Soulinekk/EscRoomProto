@@ -6,27 +6,38 @@ public class Feedback : Singleton<Feedback>
 {
     public Text feedText;
     public GameObject feedPanel;
-
+   // private bool linedup;
     void Awake()
     {
-        
+        //linedup = false;
         feedPanel.SetActive(false);
     }
-    public void ShowText(string s,float t)
+    public void ShowText(string s,float t,bool forceFeed)
     {
         //if (feedText.text == "")
        // {
-            feedPanel.SetActive(true);
-            feedText.text = s;
-            StartCoroutine(ShowTextC(t));
+            
+            StartCoroutine(ShowTextC(s,t,forceFeed));
        // }
         
     }
-    private IEnumerator ShowTextC(float time)
+    private IEnumerator ShowTextC(string s,float time,bool ff)
     {
-        
+
+        if (feedPanel.active && !ff)
+        {
+            //linedup = true;
+            while (feedText.text != "")
+            {
+                yield return null;
+            }
+        }
+        //linedup = false;
+        feedPanel.SetActive(true);
+        feedText.text = s;
         yield return new WaitForSeconds(time);
-        feedPanel.SetActive(false);
         feedText.text = "";
+        feedPanel.SetActive(false);   
+       
     }
 }
