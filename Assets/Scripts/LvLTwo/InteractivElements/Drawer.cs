@@ -60,7 +60,10 @@ public class Drawer : InteractivElement {
                 {  //Close
                     sequenceOn = false;
                     if (FindInReferences("Akwarium").actualState >= closingState)
+                    {
+                        lupa.gameObject.SetActive(false);
                         closed = true;
+                    }
                     mySpriteRenderer.sprite = avaibleSprites[0];
                     gameObject.GetComponent<Collider2D>().offset = new Vector2(0.16f, 0.16f);
                     actualState = States.Closed;
