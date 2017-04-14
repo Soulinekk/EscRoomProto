@@ -10,11 +10,12 @@ public class UseableElement : MonoBehaviour {
     public Sprite icon;
     public string pickUpFeedback;
     protected InteractivElement mainLamp;
+    HintItem hand;
 
     protected virtual void Start()
     {
         //showItemParticles = gameObject.GetComponentInChildren<ParticleSystem>().gameObject;
-        
+        hand = gameObject.GetComponentInChildren<HintItem>();
         mainLamp = GameObject.Find("mainLamp").GetComponent<InteractivElement>();
         picked = false;
     }
@@ -37,6 +38,7 @@ public class UseableElement : MonoBehaviour {
     protected virtual IEnumerator OnPickUp()
     {
         //Feedback.Instance.ShowText(pickUpFeedback, 1.5f);
+        hand.gameObject.SetActive(false);
         Inventory.Instance.AddToInventory(this);
         Feedback.Instance.ShowText(this.name, 1f,true);
         yield return null;

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Heater : InteractivElement {
 
-	protected override void Start()
+    public HintItem hand;
+    protected override void Start()
     {
         base.Start();
         actualState = States.Closed;
         //SequenceOn = true;
         StartCoroutine(AnimSprites(0, 1,0.2f));
         hidenItems[0].gameObject.SetActive(false);
+        hand.gameObject.SetActive(false);
 
     }
     protected override void FixedUpdate()
@@ -38,6 +40,8 @@ public class Heater : InteractivElement {
                     //mySpriteRenderer.sprite = avaibleSprites[1];
                     if (FindInReferences("water").actualState < States.PhaseThree)
                     {
+                        lupa.gameObject.SetActive(false);
+                        hand.gameObject.SetActive(true);
                         actualState = States.Open;
                         Feedback.Instance.ShowText("Good spot for drying", 1.5f,false);
                         hidenItems[0].gameObject.SetActive(true);
@@ -71,6 +75,7 @@ public class Heater : InteractivElement {
                 if (FindInReferences("water").actualState < States.PhaseThree)
                 {
                     feedbackOnly = false;
+                    hand.gameObject.SetActive(false);
                     Feedback.Instance.ShowText("Nice and dry", 2f,true);
                     hidenItems[0].PickUp();
                     actualState = States.Closed;

@@ -11,7 +11,7 @@ public class Zoom : MonoBehaviour {
     public Vector3 endPos;
     private float startSize;
     public float endSize;
-
+    
 
 	// Use this for initialization
 	void Start () {

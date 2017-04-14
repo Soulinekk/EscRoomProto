@@ -5,6 +5,9 @@ using UnityEngine;
 public class Aquarium : InteractivElement {
 
     public static bool sequenceStarted;
+    public HintItem hand;
+    
+
     protected override void Start()
     {
         sequenceStarted = false;
@@ -13,6 +16,7 @@ public class Aquarium : InteractivElement {
         sequenceSlowerer = 2;
         activationCheck = true;
         hidenItems[0].gameObject.GetComponent<Collider2D>().enabled = false;
+        hand.gameObject.SetActive(false);
     }
     protected override void FixedUpdate()
     {
@@ -28,6 +32,12 @@ public class Aquarium : InteractivElement {
                // Debug.Log(Inventory.Instance.activeElement.objName);
                 if (Inventory.Instance.activeElement.objName == "mlotek")
                 {
+                    if (lupa.gameObject.active)
+                    {
+                        lupa.gameObject.SetActive(false);
+                        hand.gameObject.SetActive(true);
+                    }
+                    
                     sequenceStarted = true;
                     feedbackOnly = false;
                     //mySpriteRenderer.sprite = avaibleSprites[1];
@@ -45,8 +55,9 @@ public class Aquarium : InteractivElement {
                     feedbackOnly = false;
                        // actualState = States.PhaseOne;
                         //isInteractive = false;
-                        hidenItems[0].PickUp();
-                    hidenItems = new UseableElement[0];                        //Inventory.Instance.AddToInventory(hidenItems[0]);
+                    hidenItems[0].PickUp();
+                    hidenItems = new UseableElement[0];
+                    hand.gameObject.SetActive(false);
                     Feedback.Instance.ShowText("i need to dry these slides", 2f, false);
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                 }

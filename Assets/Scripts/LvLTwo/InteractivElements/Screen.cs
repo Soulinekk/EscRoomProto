@@ -9,6 +9,7 @@ public class Screen : InteractivElement {
     bool changephase;
     int slideCounter;
     bool countClick;
+    
     protected override void Start()
     {
         
@@ -20,8 +21,7 @@ public class Screen : InteractivElement {
         sequenceSlowerer = 1;
         slideCounter = 0;
         countClick = true;
-        
-        
+       
     }
     protected override void FixedUpdate()
     {
@@ -106,6 +106,8 @@ public class Screen : InteractivElement {
                             actualState = States.PhaseFive;
                             mySpriteRenderer.sprite = avaibleSprites[12];
                             //get code
+                            //hand.gameObject.SetActive()
+                            lupa.gameObject.SetActive(false);
                             Feedback.Instance.ShowText("yay got the code !!1!", 3f, true);
                             Inventory.Instance.AddToInventory(hidenItems[0]);
                         }

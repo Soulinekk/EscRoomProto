@@ -13,7 +13,7 @@ public class MainDoor : InteractivElement
     }
     protected override IEnumerator OnClickAction()
     {
-        if (code)
+        if (Inventory.Instance.activeElement.objName == "code")
         {
             feedbackOnly = true;
             Feedback.Instance.ShowText("CONGRATULATION", 10f,true);

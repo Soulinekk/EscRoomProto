@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class InteractivElement : MonoBehaviour
 {
     //Its copy of interactiveItem.cs from 1lvl for clear 2lvl hierarchy 
+    public HintItem lupa;
     [HideInInspector]
     public bool isInteractive;
     public bool feedbackOnly;
@@ -47,6 +48,7 @@ public abstract class InteractivElement : MonoBehaviour
         actualState = States.UnBroken;
         c = gameObject.GetComponent<Collider>();
         mySpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        if (lupa == null) { lupa = new HintItem(); }
     }
 
     protected virtual void FixedUpdate()
