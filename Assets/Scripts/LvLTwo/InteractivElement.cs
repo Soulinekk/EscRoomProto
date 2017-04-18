@@ -37,7 +37,10 @@ public abstract class InteractivElement : MonoBehaviour
     public UseableElement[] hidenItems;
     protected virtual void Start()
     {
-
+        foreach (UseableElement obj in hidenItems)
+            obj.gameObject.SetActive(false);
+        if (lupa == null)
+            lupa = gameObject.GetComponentInChildren<HintItem>();
         references.Insert(0, GameObject.Find("mainLamp").GetComponent<InteractivElement>()); //gorna lampa ktora bedzie wplywala na wszystkie obiekty bedzie na poczatku ref
         feedbackOnly = false;
         activationCheck = true;

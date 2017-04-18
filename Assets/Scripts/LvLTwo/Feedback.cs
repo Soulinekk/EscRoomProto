@@ -15,8 +15,8 @@ public class Feedback : Singleton<Feedback>
     public void ShowText(string s,float t,bool forceFeed)
     {
         //if (feedText.text == "")
-       // {
-            
+        // {
+           // StopAllCoroutines();
             StartCoroutine(ShowTextC(s,t,forceFeed));
        // }
         

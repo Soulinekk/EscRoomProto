@@ -17,6 +17,7 @@ public class PadLock : InteractivElement {
         {
             feedbackOnly = true;
             code = true;
+            Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
             Feedback.Instance.ShowText("It Worked", 1.5f, true);
         }
         else
