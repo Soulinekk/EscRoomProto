@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,14 @@ public class Feedback : Singleton<Feedback>
         //linedup = false;
         feedPanel.SetActive(false);
     }
+    void LateUpdate()
+    {
+        if (!feedPanel.active && !inLine)
+            Player.allowClick = true;
+    }
+
+  
+
     public void ShowText(string s,float t,bool forceFeed)
     {
         //if (feedText.text == "")

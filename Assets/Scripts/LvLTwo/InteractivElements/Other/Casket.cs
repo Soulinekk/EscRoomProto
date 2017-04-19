@@ -22,31 +22,59 @@ public class Casket : InteractivElement
             case States.Closed:
                 if(Inventory.Instance.activeElement.objName == "yKey")
                 {
+                    feedbackOnly = false;
                     actualState = States.PhaseTwo;
                     Feedback.Instance.ShowText("one key in", 1.5f, true);
+                    Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
+
                 }
                 else if (Inventory.Instance.activeElement.objName == "bKey")
                 {
+                    feedbackOnly = false;
                     actualState = States.PhaseOne;
                     Feedback.Instance.ShowText("one key in", 1.5f, true);
+                    Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                 }
                 else
                 {
+                    feedbackOnly = true;
                     Feedback.Instance.ShowText("There are two key holes here",1.5f,true);
                 }
 
                 break;
             case States.PhaseOne:
                 //if ykey
+                if (Inventory.Instance.activeElement.objName == "yKey")
+                {
+                    feedbackOnly = false;
+                    actualState = States.UnBroken;
+                    Feedback.Instance.ShowText("both keys in", 1.5f, true);
+                    Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
+                   
+                }
 
-                break;
+                    break;
             case States.PhaseTwo:
                 //if bkey
+                if (Inventory.Instance.activeElement.objName == "bKey")
+                {
+                    feedbackOnly = false;
+                    actualState = States.UnBroken;
+                    Feedback.Instance.ShowText("both keys in", 1.5f, true);
+                    Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
+                    mySpriteRenderer.sprite = avaibleSprites[4];
+                    hidenItems[0].gameObject.SetActive(true);
+                }
 
                 break;
             case States.UnBroken:
-
-
+                actualState = States.Open;
+                hidenItems[0].PickUp();
+                
+                Inventory.Instance.RemoveFromInventory(hidenItems[1]);
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                
+               
                 break;
             case States.Open:
 

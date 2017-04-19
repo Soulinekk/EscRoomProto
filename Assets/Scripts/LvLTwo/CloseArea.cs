@@ -7,6 +7,7 @@ public class CloseArea : InteractivElement
 
     protected override IEnumerator OnClickAction()
     {
+        feedbackOnly = true;
         gameObject.SetActive(false);
         yield return base.OnClickAction();
     }

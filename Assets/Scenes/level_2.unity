@@ -1418,9 +1418,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   picked: 0
-  objName: 
-  icon: {fileID: 0}
-  pickUpFeedback: 
+  objName: BigKey
+  icon: {fileID: 21300000, guid: e6ab00043ca02804688577185642cea1, type: 3}
+  pickUpFeedback: a key!
   interactive: 0
   closeUp: {fileID: 0}
 --- !u!212 &406585246
@@ -6178,6 +6178,7 @@ MonoBehaviour:
   - {fileID: 21300004, guid: b4a6b04b6ac396344887e93f5ce88490, type: 3}
   hidenItems:
   - {fileID: 406585245}
+  - {fileID: 867446726}
 --- !u!61 &1322629895
 BoxCollider2D:
   m_ObjectHideFlags: 0

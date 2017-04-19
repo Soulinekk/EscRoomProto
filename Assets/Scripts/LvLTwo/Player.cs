@@ -37,7 +37,8 @@ public class Player : MonoBehaviour {
                     if (usblItem != null)
                     {
                     //if (UsblItem.isInteractive)
-                        //StartCoroutine(CountClick(usblItem));
+                    //StartCoroutine(CountClick(usblItem));
+                        Wait();
                         usblItem.PickUp();
                     }
                     Zoom zoomItem = hit.collider.gameObject.GetComponent<Zoom>();
