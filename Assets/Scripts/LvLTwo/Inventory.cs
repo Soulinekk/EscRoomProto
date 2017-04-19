@@ -48,8 +48,8 @@ public class Inventory : Singleton<Inventory> {
         //Debug.Log(i);
         if (i < 6)
         {
-            if (inventory[i].objName != "casket")
-            {//moj jedyny przyblizany element xd
+            if (!inventory[i].interactive)
+            {//moj jedyny przyblizany element xd mozna dac flagi
                 activeElement = inventory[i];
                 if (i != 0)
                     invButtons[0].GetComponentInChildren<Image>().sprite = invButtons[i].GetComponentInChildren<Image>().sprite;
@@ -61,7 +61,7 @@ public class Inventory : Singleton<Inventory> {
             }
             else
             {
-                //przybliz
+                inventory[i].OpenCloseUp();    
             }
             //Debug.Log(activeElement.objName);
         }

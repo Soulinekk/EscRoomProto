@@ -7,9 +7,10 @@ public class HintItem : MonoBehaviour
 {
     public Sprite[] animSprites;
     private Camera mainCam;
-    bool animStarted;
+    public bool animStarted;                    // wszystko public bo nie chce mi sie pisac metod :/ to i tak tylko proto
     public List<Vector3> positionLookedFor;
-    private SpriteRenderer mySpriteRenderer;
+    [HideInInspector]
+    public SpriteRenderer mySpriteRenderer;
        
     void Awake()
     {
@@ -38,8 +39,8 @@ public class HintItem : MonoBehaviour
                 if (!animStarted)
                 {
                     animStarted = true;
-                    StartCoroutine(AnimThis());
-                    StartCoroutine(CheckForInteraction());
+                  //  StartCoroutine(AnimThis());
+                   // StartCoroutine(CheckForInteraction());
                 }
 
             }

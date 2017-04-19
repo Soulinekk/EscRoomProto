@@ -12,9 +12,20 @@ public class UseableElement : MonoBehaviour {
     protected InteractivElement mainLamp;
     HintItem hand;
 
+    public bool interactive=false;
+    public GameObject closeUp;
+
+    public void OpenCloseUp()
+    {
+        if (closeUp != null)
+        {
+            closeUp.SetActive(true);
+        }
+    }
 
     protected virtual void Start()
     {
+        //interactive = false;
         //showItemParticles = gameObject.GetComponentInChildren<ParticleSystem>().gameObject;
         hand = gameObject.GetComponentInChildren<HintItem>();
         mainLamp = GameObject.Find("mainLamp").GetComponent<InteractivElement>();

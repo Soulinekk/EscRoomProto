@@ -14,6 +14,7 @@ public class vaultSec : InteractivElement
         // foreach (UseableElement obj in hidenItems)
         //obj.gameObject.SetActive(false);
         actualState = States.Closed;
+        gameObject.SetActive(false);
     }
     /* protected override void ActivateSequenceCheck()
      {

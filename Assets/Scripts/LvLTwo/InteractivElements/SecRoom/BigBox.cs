@@ -14,6 +14,7 @@ public class BigBox : InteractivElement {
         //  activationCheck = true;
         hidenItems[0].gameObject.SetActive(true);
         actualState = States.UnBroken;
+        gameObject.SetActive(false);
     }
     
     /* protected override void ActivateSequenceCheck()
