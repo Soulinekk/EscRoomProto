@@ -11,6 +11,7 @@ public class Zoom : MonoBehaviour {
     public Vector3 endPos;
     private float startSize;
     public float endSize;
+    public bool areaSwitch = false;
     
 
 	// Use this for initialization
@@ -20,29 +21,40 @@ public class Zoom : MonoBehaviour {
             obj.GetComponent<Collider2D>().enabled = !obj.GetComponent<Collider2D>().enabled;
             
         }*/
-        startPos = mainCam.transform.position;
-        startSize = mainCam.orthographicSize;
-        backButton.SetActive(false);
+        
+        if(!areaSwitch)
+            backButton.SetActive(false);
 	}
 	
 	public void ZoomIn()
     {
-        Debug.Log("zooming in");
-
-        //cam shift
-        mainCam.orthographicSize = endSize;
-        mainCam.transform.position = endPos;
-       // StartCoroutine(ZoomPos(endPos,endSize));
-        //StartCoroutine(ZoomSize(endSize));
-        
-        gameObject.GetComponent<Collider2D>().enabled= !gameObject.GetComponent<Collider2D>().enabled;
-        foreach (GameObject obj in areaObjects)
+        if (!this.areaSwitch)
         {
-            obj.GetComponent<Collider2D>().enabled = !obj.GetComponent<Collider2D>().enabled;
+            Debug.Log("zooming in");
+            startPos = mainCam.transform.position;
+            startSize = mainCam.orthographicSize;
+            //cam shift
+            mainCam.orthographicSize = endSize;
+            mainCam.transform.position = endPos;
+            // StartCoroutine(ZoomPos(endPos,endSize));
+            //StartCoroutine(ZoomSize(endSize));
+
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            foreach (GameObject obj in areaObjects)
+            {
+                if (obj.active)
+                    obj.GetComponent<Collider2D>().enabled = !obj.GetComponent<Collider2D>().enabled;
+            }
+            backButton.GetComponent<Button>().onClick.AddListener(() => { this.ZoomOut(); });
+            backButton.SetActive(true);
+            //cam shift ;
         }
-        backButton.GetComponent<Button>().onClick.AddListener(() => { this.ZoomOut(); });
-        backButton.SetActive(true);
-        //cam shift ;
+        else
+        {
+            mainCam.transform.position = endPos;
+            startPos = endPos;
+            //startSize = mainCam.orthographicSize;
+        }
     }
     public void ZoomOut()
     {
@@ -52,10 +64,11 @@ public class Zoom : MonoBehaviour {
         mainCam.orthographicSize = startSize;
         mainCam.transform.position = startPos;
 
-        gameObject.GetComponent<Collider2D>().enabled = !gameObject.GetComponent<Collider2D>().enabled;
+        gameObject.GetComponent<Collider2D>().enabled = true;
         foreach (GameObject obj in areaObjects)
         {
-            obj.GetComponent<Collider2D>().enabled = !obj.GetComponent<Collider2D>().enabled;
+            if (obj.active)
+                obj.GetComponent<Collider2D>().enabled = !obj.GetComponent<Collider2D>().enabled;
         }
         backButton.GetComponent<Button>().onClick.RemoveAllListeners();
         backButton.SetActive(false);
@@ -75,6 +88,8 @@ public class Zoom : MonoBehaviour {
 
         yield return null;
     }
+
+   
    /* private IEnumerator ZoomSize(float end)
     {
 

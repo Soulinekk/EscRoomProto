@@ -80,7 +80,7 @@ public class HintItem : MonoBehaviour
         
         while (animStarted)
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(4f);
             for (int i = 0; i < animSprites.Length; i++)
             {
                 mySpriteRenderer.sprite = animSprites[i];

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class vaultSec : InteractivElement
 {
+    public static bool sequenceStarted;
     protected override void Start()
     {
-
+        sequenceStarted = false;
         base.Start();
         //  closed = false;
         //  activationCheck = true;
@@ -34,6 +35,8 @@ public class vaultSec : InteractivElement
             references[1].gameObject.SetActive(false);
         }
         base.FixedUpdate();
+        if(actualState == States.Open)
+            gameObject.GetComponent<Collider2D>().enabled = false;
     }
     protected override IEnumerator OnClickAction()                          // Zachowanie po kliknieciu
     {
@@ -60,8 +63,11 @@ public class vaultSec : InteractivElement
             case States.UnBroken:
                 actualState = States.Open;
                 //ALARM ON
+               
                 feedbackOnly = false;
                 Feedback.Instance.ShowText("Oh no I turned on the alarm", 2f, feedbackOnly);
+                sequenceStarted = true;
+                references[2].actualState = States.Open;
                 mySpriteRenderer.sprite = avaibleSprites[1];
                 //show box show key
                 hidenItems[0].gameObject.SetActive(true);

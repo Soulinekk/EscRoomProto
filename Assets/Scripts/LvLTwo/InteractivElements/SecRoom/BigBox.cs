@@ -42,11 +42,15 @@ public class BigBox : InteractivElement {
                 actualState = States.Open;
                 if(hidenItems.Length>1)
                     hidenItems[1].gameObject.SetActive(true);
+                lupa.gameObject.SetActive(false);
                 mySpriteRenderer.sprite = avaibleSprites[0];
+                
                 //}
                 break;
             case States.Open:
-                //get greykey
+                //get hammer
+                Feedback.Instance.ShowText("who's keeping his hammer in vault?", 3f, false);
+                hidenItems[1].PickUp();
                 //closevault
                 actualState = States.PhaseOne;
 

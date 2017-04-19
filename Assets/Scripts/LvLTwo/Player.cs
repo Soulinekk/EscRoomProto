@@ -9,10 +9,11 @@ public class Player : MonoBehaviour {
     public static bool interactiveItemClicked = false;
     public static bool allowInteraction=true;
     public static bool doubleAnim = false;
+    public static bool allowClick = true;
     public Button backButton;
     void Update()                                       //Wysyłanie raycasta z kursora na gre, 
     {                                                   //jezeli jakikolwiek interaktywny element zostanie uderzony, aktywuje sie
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && allowClick)
         {
            
                 Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -49,14 +50,14 @@ public class Player : MonoBehaviour {
         
     }
 
-    public void Wait()
+    public void Wait()                      ///WAIT BUTTON
     {
         StartCoroutine(WaitC());
     }
 
     private IEnumerator WaitC()
     {
-        if (Aquarium.sequenceStarted)
+        if (Aquarium.sequenceStarted || vaultSec.sequenceStarted)
         {
             backButton.onClick.Invoke();
             yield return new WaitForSeconds(0.4f);
@@ -70,10 +71,14 @@ public class Player : MonoBehaviour {
     {
         // cam shift
         yield return new WaitForFixedUpdate();
-        if (!item.feedbackOnly && Aquarium.sequenceStarted)
+        if (!item.feedbackOnly)
         {
-            backButton.onClick.Invoke();
-            yield return new WaitForSeconds(0.4f);
+            if (Aquarium.sequenceStarted || vaultSec.sequenceStarted)
+            {
+                yield return new WaitForSeconds(0.2f);
+                backButton.onClick.Invoke();
+                yield return new WaitForSeconds(0.4f);
+            }
         }
         
         if (!item.feedbackOnly)

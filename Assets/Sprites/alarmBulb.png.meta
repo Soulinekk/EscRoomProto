@@ -1,11 +1,14 @@
 fileFormatVersion: 2
 guid: 8d1b686b0c1dc664499f1bc9b987c6f6
-timeCreated: 1492499410
+timeCreated: 1492594765
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: alarmBulb_0
     21300002: alarmBulb_1
+    21300004: alarmBulb_2
+    21300006: alarmBulb_3
+    21300008: alarmBulb_4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -128,12 +131,51 @@ TextureImporter:
         width: 57
         height: 51
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: alarmBulb_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 0
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: alarmBulb_2
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 0
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: alarmBulb_3
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 0
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: alarmBulb_4
       rect:
         serializedVersion: 2
         x: 61

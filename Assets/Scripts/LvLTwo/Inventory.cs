@@ -48,14 +48,21 @@ public class Inventory : Singleton<Inventory> {
         //Debug.Log(i);
         if (i < 6)
         {
+            if (inventory[i].objName != "casket")
+            {//moj jedyny przyblizany element xd
                 activeElement = inventory[i];
-            if (i != 0)
-                invButtons[0].GetComponentInChildren<Image>().sprite = invButtons[i].GetComponentInChildren<Image>().sprite;
-            else
-                invButtons[0].GetComponentInChildren<Image>().sprite = noItem;
+                if (i != 0)
+                    invButtons[0].GetComponentInChildren<Image>().sprite = invButtons[i].GetComponentInChildren<Image>().sprite;
+                else
+                    invButtons[0].GetComponentInChildren<Image>().sprite = noItem;
 
-            if(i!=0)
-                Feedback.Instance.ShowText(activeElement.name, 0.5f,true);
+                if (i != 0)
+                    Feedback.Instance.ShowText(activeElement.name, 0.5f, true);
+            }
+            else
+            {
+                //przybliz
+            }
             //Debug.Log(activeElement.objName);
         }
     }

@@ -15,6 +15,7 @@ public class Aquarium : InteractivElement {
         actualState = States.UnBroken;
         sequenceSlowerer = 2;
         activationCheck = true;
+        hidenItems[0].gameObject.SetActive(true);
         hidenItems[0].gameObject.GetComponent<Collider2D>().enabled = false;
         hand.gameObject.SetActive(false);
     }

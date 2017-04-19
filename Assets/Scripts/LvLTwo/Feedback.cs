@@ -6,9 +6,11 @@ public class Feedback : Singleton<Feedback>
 {
     public Text feedText;
     public GameObject feedPanel;
+    private bool inLine;
    // private bool linedup;
     void Awake()
     {
+        inLine = false;
         //linedup = false;
         feedPanel.SetActive(false);
     }
@@ -23,9 +25,10 @@ public class Feedback : Singleton<Feedback>
     }
     private IEnumerator ShowTextC(string s,float time,bool ff)
     {
-
+        Player.allowClick = false;
         if (feedPanel.active && !ff)
         {
+            inLine = true;
             //linedup = true;
             while (feedText.text != "")
             {
@@ -37,7 +40,13 @@ public class Feedback : Singleton<Feedback>
         feedText.text = s;
         yield return new WaitForSeconds(time);
         feedText.text = "";
-        feedPanel.SetActive(false);   
-       
+        if (!inLine)
+        {
+            feedPanel.SetActive(false);             //dunno how to check if second panel is active ... yet
+            Player.allowClick = true;
+        }
+        
+        
+        inLine = false;
     }
 }

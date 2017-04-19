@@ -51,7 +51,7 @@ public abstract class InteractivElement : MonoBehaviour
         actualState = States.UnBroken;
         c = gameObject.GetComponent<Collider>();
         mySpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        if (lupa == null) { lupa = new HintItem(); }
+       // if (lupa == null) //{ lupa = //new HintItem(); }
     }
 
     protected virtual void FixedUpdate()
