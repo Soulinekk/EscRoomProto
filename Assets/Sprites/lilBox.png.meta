@@ -1,12 +1,15 @@
 fileFormatVersion: 2
 guid: b4a6b04b6ac396344887e93f5ce88490
-timeCreated: 1492499291
+timeCreated: 1492609953
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: lilBox_0
     21300002: lilBox_1
     21300004: lilBox_2
+    21300006: lilBox_3
+    21300008: lilBox_4
+    21300010: lilBox_5
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -125,11 +128,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 89
+        y: 129
         width: 83
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -138,11 +141,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 46
+        y: 86
         width: 83
-        height: 41
+        height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -151,9 +154,48 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 40
         width: 83
-        height: 38
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: lilBox_3
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 102
+        width: 83
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: lilBox_4
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 52
+        width: 83
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: lilBox_5
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 2
+        width: 83
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

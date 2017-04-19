@@ -61,6 +61,9 @@ public class Inventory : Singleton<Inventory> {
             }
             else
             {
+                GameObject b = GameObject.Find("BackButton");
+                if(b!=null)
+                    b.GetComponent<Button>().onClick.Invoke();
                 inventory[i].OpenCloseUp();    
             }
             //Debug.Log(activeElement.objName);

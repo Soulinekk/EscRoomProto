@@ -43,7 +43,7 @@ public class BigBox : InteractivElement {
                 actualState = States.Open;
                 if(hidenItems.Length>1)
                     hidenItems[1].gameObject.SetActive(true);
-                lupa.gameObject.SetActive(false);
+                
                 mySpriteRenderer.sprite = avaibleSprites[0];
                 
                 //}
