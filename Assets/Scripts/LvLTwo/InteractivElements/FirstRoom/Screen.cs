@@ -57,7 +57,7 @@ public class Screen : InteractivElement {
             isInteractive = false;
            if (Player.interactiveItemClicked)
             {
-                if (FindInReferences("lamp").actualState == States.PhaseFour || FindInReferences("lamp").actualState == States.PhaseFive)
+                if (FindInReferences("lamp").actualState == States.PhaseFour)// || FindInReferences("lamp").actualState == States.PhaseFive)
                 {
                     //ChangeState();  // jezeli obiekt zmienia sie sekwencyjnie zmienia tez swoj state
                     /*if (actionClickCount % sequenceSlowerer == 0)
@@ -90,7 +90,7 @@ public class Screen : InteractivElement {
             }
             else
             {
-                if (FindInReferences("lamp").actualState == States.PhaseFour || FindInReferences("lamp").actualState == States.PhaseFive)
+                if (FindInReferences("lamp").actualState == States.PhaseFour)// || FindInReferences("lamp").actualState == States.PhaseFive)
                 {
                     //Debug.Log(slideCounter);
                     if (actualState == States.PhaseOne)
