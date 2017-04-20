@@ -49,14 +49,14 @@ public class alarm : InteractivElement {
 
                         break;
                     case States.PhaseFive:
-
+                        sequenceOn = false;
                         Feedback.Instance.ShowText("DOOR CLOSED", 1f, feedbackOnly);
                         references[2].actualState = States.Broken;
                         references[3].actualState = States.Broken;
                         references[4].actualState = States.Broken;
                         references[5].actualState = States.Broken;
-
-
+                        actualState = States.Closed;
+                        vaultSec.sequenceStarted = false;
 
                         break;
 

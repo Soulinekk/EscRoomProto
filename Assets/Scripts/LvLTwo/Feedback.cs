@@ -58,4 +58,11 @@ public class Feedback : Singleton<Feedback>
         
         inLine = false;
     }
+    public void StopAll()
+    {
+        StopAllCoroutines();
+        inLine = false;
+        feedPanel.SetActive(false);             //dunno how to check if second panel is active ... yet
+        Player.allowClick = true;
+    }
 }

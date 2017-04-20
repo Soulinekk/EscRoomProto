@@ -65,6 +65,7 @@ public class Player : MonoBehaviour {
 
     public void Wait()                      ///WAIT BUTTON
     {
+        Feedback.Instance.StopAll();
         StartCoroutine(WaitC());
     }
 
