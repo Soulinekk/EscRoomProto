@@ -114,7 +114,7 @@ public class Heater : InteractivElement {
     {
         
         base.AdvanceSequence();
-        if (actualState == States.PhaseOne)
+        if (actualState > States.PhaseOne)
             Feedback.Instance.ShowText("I think slides should be dry now.", 2f, false);
     }
 }

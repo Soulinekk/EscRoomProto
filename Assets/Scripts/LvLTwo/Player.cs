@@ -10,9 +10,20 @@ public class Player : MonoBehaviour {
     public static bool allowInteraction=true;
     public static bool doubleAnim = false;
     public static bool allowClick = true;
+    private bool forceFeed=true;
+    public void SetForceFeed(bool b)
+    {
+        forceFeed = b;
+    }
     public Button backButton;
     void Update()                                       //Wysyłanie raycasta z kursora na gre, 
-    {                                                   //jezeli jakikolwiek interaktywny element zostanie uderzony, aktywuje sie
+    {
+        //jezeli jakikolwiek interaktywny element zostanie uderzony, aktywuje sie
+
+        if (!forceFeed)
+            allowClick = true;
+
+
         if (Input.GetMouseButtonDown(0) && allowClick)
         {
            

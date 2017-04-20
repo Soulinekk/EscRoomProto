@@ -101,13 +101,10 @@ public class alarm : InteractivElement {
     {
         switch (actualState)
         {
-            case States.Closed:
-                
-
-                break;
-
+            
             default:
-
+                feedbackOnly = true;
+                Feedback.Instance.ShowText("Big red bulb", 1f, true);
                 break;
                 
         }
