@@ -67,7 +67,7 @@ public class vaultSec : InteractivElement
                
                 feedbackOnly = false;
                 Feedback.Instance.ShowText("Oh no I turned on the alarm", 2f, feedbackOnly);
-                sequenceStarted = true;
+                
                 references[2].actualState = States.Open;
                 mySpriteRenderer.sprite = avaibleSprites[1];
                 //show box show key
