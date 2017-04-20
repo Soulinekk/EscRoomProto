@@ -26,6 +26,7 @@ public class Casket : InteractivElement
                     actualState = States.PhaseTwo;
                     Feedback.Instance.ShowText("one key in", 1.5f, true);
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
+                    mySpriteRenderer.sprite = avaibleSprites[1];
 
                 }
                 else if (Inventory.Instance.activeElement.objName == "bKey")
@@ -34,6 +35,7 @@ public class Casket : InteractivElement
                     actualState = States.PhaseOne;
                     Feedback.Instance.ShowText("one key in", 1.5f, true);
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
+                    mySpriteRenderer.sprite = avaibleSprites[2];
                 }
                 else
                 {
@@ -50,7 +52,9 @@ public class Casket : InteractivElement
                     actualState = States.UnBroken;
                     Feedback.Instance.ShowText("both keys in", 1.5f, true);
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
-                   
+                    mySpriteRenderer.sprite = avaibleSprites[4];
+                    hidenItems[0].gameObject.SetActive(true);
+
                 }
 
                     break;

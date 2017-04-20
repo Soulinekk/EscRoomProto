@@ -24,33 +24,39 @@ public class alarm : InteractivElement {
                 {
 
                     case States.Open:
-                        Feedback.Instance.ShowText("OPEN VAULT DETECTET", 1.5f, feedbackOnly);
-                        Feedback.Instance.ShowText("DOOR CLOSING IN 5 ", 2f, feedbackOnly);
+                        Feedback.Instance.ShowText("OPEN VAULT DETECTET", 1f, feedbackOnly);
+                        Feedback.Instance.ShowText("DOOR CLOSING IN 5", 1f, feedbackOnly);
 
                         break;
                     case States.PhaseOne:
 
-                        Feedback.Instance.ShowText("DOOR CLOSING IN 4 ", 2f, feedbackOnly);
+                        Feedback.Instance.ShowText("DOOR CLOSING IN 4", 1f, feedbackOnly);
 
                         break;
                     case States.PhaseTwo:
 
-                        Feedback.Instance.ShowText("DOOR CLOSING IN 3 ", 2f, feedbackOnly);
+                        Feedback.Instance.ShowText("DOOR CLOSING IN 3", 1f, feedbackOnly);
 
                         break;
                     case States.PhaseThree:
 
-                        Feedback.Instance.ShowText("DOOR CLOSING IN 2 ", 2f, feedbackOnly);
+                        Feedback.Instance.ShowText("DOOR CLOSING IN 2", 1f, feedbackOnly);
 
                         break;
                     case States.PhaseFour:
 
-                        Feedback.Instance.ShowText("DOOR CLOSING IN 1 ", 2f, feedbackOnly);
+                        Feedback.Instance.ShowText("DOOR CLOSING IN 1", 1f, feedbackOnly);
 
                         break;
                     case States.PhaseFive:
 
-                        Feedback.Instance.ShowText("DOOR CLOSING NOW ", 2f, feedbackOnly);
+                        Feedback.Instance.ShowText("DOOR CLOSED", 1f, feedbackOnly);
+                        references[2].actualState = States.Broken;
+                        references[3].actualState = States.Broken;
+                        references[4].actualState = States.Broken;
+                        references[5].actualState = States.Broken;
+
+
 
                         break;
 
@@ -68,8 +74,8 @@ public class alarm : InteractivElement {
             {
                 vaultSec.sequenceStarted = false;
                 sequenceOn = false;
-                Feedback.Instance.ShowText("CLOSED VAULT DETECTET", 1.5f, true);
-                Feedback.Instance.ShowText("Alarm goes off finally", 2f, true);
+                Feedback.Instance.ShowText("CLOSED VAULT DETECTET", 1f, true);
+                Feedback.Instance.ShowText("Alarm goes off finally", 1.5f, true);
                 actualState = States.Closed;
                 mySpriteRenderer.sprite = avaibleSprites[0];
             }

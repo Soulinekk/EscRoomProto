@@ -34,23 +34,31 @@ public class BigBox : InteractivElement {
         {
             case States.UnBroken:
                 feedbackOnly = false;
-                Feedback.Instance.ShowText("theres small yellow key here",2f,feedbackOnly);
+                Feedback.Instance.ShowText("theres small yellow key here",1f,feedbackOnly);
                 actualState = States.Closed;
                 hidenItems[0].PickUp();
                 break;
             case States.Closed:
-                //  if (Inventory.Instance.activeElement.objName == "greyKey") { 
-                actualState = States.Open;
-                if(hidenItems.Length>1)
-                    hidenItems[1].gameObject.SetActive(true);
-                
-                mySpriteRenderer.sprite = avaibleSprites[0];
-                
-                //}
+                if (Inventory.Instance.activeElement.objName == "bigKey")
+                {
+                    actualState = States.Open;
+                    if (hidenItems.Length > 1)
+                        hidenItems[1].gameObject.SetActive(true);
+                    Feedback.Instance.ShowText("it's the right key", 1.5f, false);
+                    mySpriteRenderer.sprite = avaibleSprites[0];
+                    Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
+
+                }
+                else
+                {
+                    feedbackOnly = true;
+                    Feedback.Instance.ShowText("Locked, and too heavy to pick up", 1.5f,false);
+                }
                 break;
             case States.Open:
                 //get hammer
-                Feedback.Instance.ShowText("who's keeping his hammer in vault?", 3f, false);
+                feedbackOnly = false;
+                Feedback.Instance.ShowText("who's keeping his hammer in vault?", 1.5f, false);
                 hidenItems[1].PickUp();
                 //closevault
                 actualState = States.PhaseOne;
