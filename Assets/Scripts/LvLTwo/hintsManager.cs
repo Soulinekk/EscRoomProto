@@ -65,5 +65,26 @@ public class hintsManager : MonoBehaviour {
         return item;
         
     }
+
+    public void SwitchToRandom()
+    {
+        StopAllCoroutines();
+        active = true;
+        foreach (HintItem item in hintsItems)
+        {
+            item.randomMode = true;
+        }
+        StartCoroutine(ShowHints());
+    }
+    public void SwitchToAll()
+    {
+        StopAllCoroutines();
+        active = false;
+        foreach (HintItem item in hintsItems)
+        {
+            item.randomMode = false;
+        }
+        
+    }
     
 }
