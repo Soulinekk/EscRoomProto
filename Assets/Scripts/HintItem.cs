@@ -11,14 +11,16 @@ public class HintItem : MonoBehaviour
     public List<Vector3> positionLookedFor;
     [HideInInspector]
     public SpriteRenderer mySpriteRenderer;
-       
+    public bool randomMode=false;
+    
     void Awake()
     {
         
         animStarted = false;
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         mySpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        mySpriteRenderer.sprite = animSprites[0];
+        mySpriteRenderer.sprite = animSprites[1];
+        mySpriteRenderer.enabled = false;
         //if (positionLookedFor.Count == 0)
           //  positionLookedFor = new List<Vector3>();
 
@@ -27,33 +29,37 @@ public class HintItem : MonoBehaviour
     void OnEnable()
     {
         animStarted = false;
-        mySpriteRenderer.sprite = animSprites[0];
+        mySpriteRenderer.enabled = false;
     }
     void Update()
     {
-        int i = 0;
-        while (!animStarted && i != positionLookedFor.Count)
+        if (!randomMode)
         {
-            if (mainCam.transform.position == positionLookedFor[i])
+            int i = 0;
+            while (!animStarted && i != positionLookedFor.Count)
             {
-                if (!animStarted)
+                if (mainCam.transform.position == positionLookedFor[i])
                 {
-                    animStarted = true;
-                  //  StartCoroutine(AnimThis());
-                   // StartCoroutine(CheckForInteraction());
+                    if (!animStarted)
+                    {
+                        animStarted = true;
+                        StartCoroutine(AnimThis());
+                        StartCoroutine(CheckForInteraction());
+                    }
+
                 }
+                else
+                {
 
+                    StopAllCoroutines();
+                    mySpriteRenderer.sprite = animSprites[1];
+                    mySpriteRenderer.enabled = false;
+                    animStarted = false;
+                }
+                i++;
             }
-            else
-            {
-
-                StopAllCoroutines();
-                mySpriteRenderer.sprite = animSprites[0];
-                animStarted = false;
-            }
-            i++;
         }
-
+        
     }
 
     private IEnumerator CheckForInteraction()
@@ -63,11 +69,12 @@ public class HintItem : MonoBehaviour
             {
             yield return null;
         }
-        mySpriteRenderer.sprite = animSprites[0];
-        
+        mySpriteRenderer.sprite = animSprites[1];
+        mySpriteRenderer.enabled = false;
         yield return new WaitForFixedUpdate();
        
-        mySpriteRenderer.sprite = animSprites[0];
+        mySpriteRenderer.sprite = animSprites[1];
+        mySpriteRenderer.enabled = false;
         animStarted = false;
         StopAllCoroutines();
         yield return null;
@@ -78,18 +85,39 @@ public class HintItem : MonoBehaviour
 
     private IEnumerator AnimThis()
     {
-        
+        mySpriteRenderer.enabled = false;
         while (animStarted)
         {
             yield return new WaitForSeconds(4f);
+            mySpriteRenderer.enabled = true;
+            for (int i = 1; i < animSprites.Length; i++)
+            {
+                mySpriteRenderer.sprite = animSprites[i];
+                yield return new WaitForSeconds(0.35f);
+            }
+            mySpriteRenderer.sprite = animSprites[1];
+            mySpriteRenderer.enabled = false;
+        }
+        
+       
+        yield return null;
+    }
+    public void AnimNow()
+    {
+        StartCoroutine(AnimThisNow());
+    }
+    private IEnumerator AnimThisNow()
+    {
+            Debug.Log("hi");
+        mySpriteRenderer.enabled = true; 
+        mySpriteRenderer.sprite = animSprites[1];
             for (int i = 0; i < animSprites.Length; i++)
             {
                 mySpriteRenderer.sprite = animSprites[i];
                 yield return new WaitForSeconds(0.35f);
             }
-            mySpriteRenderer.sprite = animSprites[0];
-        }
-        
+            mySpriteRenderer.sprite = animSprites[1];
+        mySpriteRenderer.enabled = false;
         yield return null;
     }
 }

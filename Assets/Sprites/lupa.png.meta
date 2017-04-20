@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c8b6388177cb9224cbc43d6041dff8a3
-timeCreated: 1492156571
+timeCreated: 1492681952
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -121,19 +121,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lupa_0
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 0
-        width: 86
-        height: 86
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: lupa_1
       rect:
         serializedVersion: 2
@@ -155,7 +142,7 @@ TextureImporter:
         width: 86
         height: 86
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

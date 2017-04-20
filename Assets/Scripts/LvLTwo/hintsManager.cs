@@ -1,73 +1,69 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class hintsManager : MonoBehaviour {
-   /* Camera mainCam;
-    public HintItem[] hintsItems;
+    Camera mainCam;
+    System.Random rnd = new System.Random();
+    public List<HintItem> hintsItems;
+    public bool active = true;
+    HintItem lastShowed;
     void Awake()
     {
         mainCam = gameObject.GetComponent<Camera>();
-        hintsItems = GameObject.FindObjectsOfType<HintItem>();
-    }
-
-    private IEnumerator CheckForInteraction()
-    {
-        yield return new WaitForFixedUpdate();
-        while (!Input.GetMouseButtonDown(0)) ///////check if player pressed anything, can be switch to interactive items only if needed)
+        hintsItems = new List<HintItem>(GameObject.FindObjectsOfType<HintItem>());
+        if (active)
         {
-            yield return null;
-        }
-        foreach (HintItem obj in hintsItems)
-        {
-            obj.mySpriteRenderer.sprite = obj.animSprites[0];
-        }
-        yield return new WaitForFixedUpdate();
-        foreach (HintItem obj in hintsItems)
-        {
-            obj.mySpriteRenderer.sprite = obj.animSprites[0];
-            obj.animStarted = false;
-            StopAllCoroutines();
-        }
-        yield return null;
-
-
-
-    }
-    /*
-    private IEnumerator AnimThis()
-    {
-        //animuj losowy obj
-        HintItem obj;
-        Vector3 pos = mainCam.transform.position;
-        Vector3 actPos = Vector3.zero;
-        int j=0;
-        obj = hintsItems[(int)Random.Range(0, hintsItems.Length - 1)];
-        do{
-            if (j == obj.positionLookedFor.Count - 1)
+            foreach (HintItem item in hintsItems)
             {
-                obj = hintsItems[(int)Random.Range(0, hintsItems.Length - 1)];
-                j = 0;
+                item.randomMode = true;
+            }
+            StartCoroutine(ShowHints());
+        }
+    }
+    void Update()
+    {
+        //every x sec after last click show random hint for that area
+        //look for click and start new coroutine
+        if (active)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                StopAllCoroutines();
+                StartCoroutine(ShowHints());
+            }
+        }
+    }
+
+    private IEnumerator ShowHints()
+    {
+        yield return new WaitForSeconds(4.5f);
+        GetRandomItem().AnimNow();
+       
+
+        yield return StartCoroutine(ShowHints());
+    }
+
+    HintItem GetRandomItem()                    //this will take lot of time :/
+    {
+        HintItem item = hintsItems[rnd.Next(hintsItems.Count - 1)];
+        int i = 0;
+        
+        while(item.positionLookedFor[i] != mainCam.transform.position || !item.gameObject.active || lastShowed==item)
+        {
+            if (i == item.positionLookedFor.Count - 1)
+            {
+                item = hintsItems[rnd.Next(hintsItems.Count- 1)];
             }
             else
-                j++;
-
-        }
-        while ( actPos != pos);
-        
-
-        while (obj.animStarted)
-        {
-            yield return new WaitForSeconds(4f);
-            for (int i = 0; i < obj.animSprites.Length; i++)
             {
-                obj.mySpriteRenderer.sprite = obj.animSprites[i];
-                yield return new WaitForSeconds(0.35f);
+                i++;
             }
-            obj.mySpriteRenderer.sprite = obj.animSprites[0];
         }
-
-        yield return null;
+        lastShowed = item;
+        return item;
+        
     }
-    */
+    
 }

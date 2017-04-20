@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 82a2d0433ff39fd4eb48101f0d3d2f8e
-timeCreated: 1492161675
+timeCreated: 1492681928
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -121,19 +121,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hand_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 86
-        height: 86
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: hand_1
       rect:
         serializedVersion: 2
@@ -142,7 +129,7 @@ TextureImporter:
         width: 86
         height: 86
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -155,7 +142,7 @@ TextureImporter:
         width: 86
         height: 86
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
