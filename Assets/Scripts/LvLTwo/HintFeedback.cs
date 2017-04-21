@@ -80,7 +80,7 @@ public class HintFeedback : MonoBehaviour {
                         Feedback.Instance.ShowText("I should look around", 2f, false);
                     break;
                 case "ElectricBox":
-                    if (lastClickedElement.actualState == InteractivElement.States.Closed)
+                    if (lastClickedElement.actualState == InteractivElement.States.UnBroken)
                         Feedback.Instance.ShowText("that electric box look damaged i hope i dont lose electricity", 3f, false);
                     else if (lastClickedElement.actualState == InteractivElement.States.DarkRoom)
                         Feedback.Instance.ShowText("I should do it b4 light went off", 3f, false);
