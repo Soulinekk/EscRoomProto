@@ -40,6 +40,7 @@ public class Player : MonoBehaviour {
                     {
                         StartCoroutine(CountClick(intItem));
                         HintFeedback.lastClickedElement = intItem;
+                       // Debug.Log(HintFeedback.lastClickedElement.gameObject.name);
                         intItem.OnClickBehaviour();
                         Inventory.Instance.SetActiveElement(0);
                     }
