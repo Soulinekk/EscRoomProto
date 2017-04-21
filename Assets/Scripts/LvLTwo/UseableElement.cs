@@ -50,6 +50,7 @@ public class UseableElement : MonoBehaviour {
     protected virtual IEnumerator OnPickUp()
     {
         //Feedback.Instance.ShowText(pickUpFeedback, 1.5f);
+        picked = true;
         if(hand!=null)
             hand.gameObject.SetActive(false);
         Inventory.Instance.AddToInventory(this);

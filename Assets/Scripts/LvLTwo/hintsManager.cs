@@ -49,7 +49,7 @@ public class hintsManager : MonoBehaviour {
     {
         HintItem item = hintsItems[rnd.Next(hintsItems.Count - 1)];
         int i = 0;
-        
+        int j = 0;
         while(item.positionLookedFor[i] != mainCam.transform.position || !item.gameObject.active || lastShowed==item)
         {
             if (i == item.positionLookedFor.Count - 1)
@@ -60,7 +60,14 @@ public class hintsManager : MonoBehaviour {
             {
                 i++;
             }
+            j++;
+            if (j == 100)
+            {
+                return lastShowed;
+                            
+            }
         }
+         
         lastShowed = item;
         return item;
         

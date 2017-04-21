@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HintItem : MonoBehaviour
 {
+    public UseableElement[] itemsPointedAt;
     public Sprite[] animSprites;
     private Camera mainCam;
     public bool animStarted;                    // wszystko public bo nie chce mi sie pisac metod :/ to i tak tylko proto
@@ -33,6 +34,9 @@ public class HintItem : MonoBehaviour
     }
     void Update()
     {
+        
+
+
         if (!randomMode)
         {
             int i = 0;
@@ -59,7 +63,16 @@ public class HintItem : MonoBehaviour
                 i++;
             }
         }
-        
+        foreach (UseableElement item in itemsPointedAt)
+        {
+            if (item.picked)
+            {
+                StopAllCoroutines();
+                this.gameObject.SetActive(false);
+                break;
+            }
+        }
+
     }
 
     private IEnumerator CheckForInteraction()

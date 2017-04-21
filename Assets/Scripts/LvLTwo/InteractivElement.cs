@@ -70,6 +70,7 @@ public abstract class InteractivElement : MonoBehaviour
     {
         if (references[0].actualState == States.Broken && actualState != States.DarkRoom && this != references[0])
         {
+           // isInteractive = false;
             actualState = States.DarkRoom;
             ChangeToDarkRoom();
         }
