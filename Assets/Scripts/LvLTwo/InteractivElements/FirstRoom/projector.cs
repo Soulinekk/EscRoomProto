@@ -19,6 +19,7 @@ public class projector : InteractivElement {
                 if (Inventory.Instance.activeElement.objName == "drySlides")
                 {
                     feedbackOnly = false;
+                    disableHint = true;
                     Feedback.Instance.ShowText("This goes there", 1.5f,false);
                     Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
                     actualState = States.Open;

@@ -77,6 +77,7 @@ public class Screen : InteractivElement {
                 {
                     mySpriteRenderer.sprite = darkRoomSprite;
                     actualState = States.DarkRoom;
+                    disableHint = true;
                 }
                 actionClickCount++;
                 //np co drugie (2%2 i 4%2 6%2=0) lub co trzecie (3%3 i 6%3 9%3 =0)
@@ -87,6 +88,7 @@ public class Screen : InteractivElement {
 
                 actualState = States.DarkRoom;
                 mySpriteRenderer.sprite = darkRoomSprite;
+                disableHint = true;
             }
             else
             {
@@ -132,6 +134,8 @@ public class Screen : InteractivElement {
                 else
                 {
                     mySpriteRenderer.sprite = darkRoomSprite;
+                    actualState = States.DarkRoom;
+                    disableHint = true;
                 }
             }
         }

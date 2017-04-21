@@ -36,6 +36,7 @@ public class Lamp : InteractivElement {
                 if (Inventory.Instance.activeElement.objName == "bulb")
                 {
                     feedbackOnly = false;
+                    disableHint = true;
                     Feedback.Instance.ShowText("Doesn't fit well, but it works", 1.5f,true);
                     actualState = States.Open;
                     sequenceOn = true;

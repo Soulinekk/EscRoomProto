@@ -17,6 +17,12 @@ public class Drawer : InteractivElement {
             obj.gameObject.SetActive(false);
         actualState = States.Closed;
     }
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        if (actualState > States.PhaseTwo && !disableHint)
+            disableHint = true;
+    }
     protected override void ActivateSequenceCheck()
     {
         if (FindInReferences("water").actualState == closingState-1 && actualState >= States.Open)

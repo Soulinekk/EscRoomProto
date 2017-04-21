@@ -7,6 +7,7 @@ public abstract class InteractivElement : MonoBehaviour
 {
     //Its copy of interactiveItem.cs from 1lvl for clear 2lvl hierarchy 
     public HintItem lupa;
+    public bool disableHint;
     [HideInInspector]
     public bool isInteractive;
     public bool feedbackOnly;
@@ -37,6 +38,7 @@ public abstract class InteractivElement : MonoBehaviour
     public UseableElement[] hidenItems;
     protected virtual void Start()
     {
+        disableHint = false;
         foreach (UseableElement obj in hidenItems)
             obj.gameObject.SetActive(false);
         if (lupa == null)

@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class HintItem : MonoBehaviour
 {
-    public UseableElement[] itemsPointedAt;
+    public List<UseableElement> hintItemDisablersU;
+   public List<InteractivElement> hintItemDisablersI;
     public Sprite[] animSprites;
     private Camera mainCam;
     public bool animStarted;                    // wszystko public bo nie chce mi sie pisac metod :/ to i tak tylko proto
@@ -63,14 +64,46 @@ public class HintItem : MonoBehaviour
                 i++;
             }
         }
-        foreach (UseableElement item in itemsPointedAt)
+
+
+        List<InteractivElement> itemsToRemove=new List<InteractivElement>();
+        foreach (InteractivElement item in hintItemDisablersI)
+        {
+            if (item.disableHint)
+            {
+                itemsToRemove.Add(item);
+            }
+        }
+        foreach(InteractivElement item in itemsToRemove)
+        {
+            if (hintItemDisablersI.Contains(item))
+            {
+                hintItemDisablersI.Remove(item);
+            }
+        }
+
+        List<UseableElement> uItemsToRemove = new List<UseableElement>();
+        foreach (UseableElement item in hintItemDisablersU)
         {
             if (item.picked)
             {
-                StopAllCoroutines();
-                this.gameObject.SetActive(false);
-                break;
+                uItemsToRemove.Add(item);
+                
             }
+        }
+        foreach (UseableElement item in uItemsToRemove)
+        {
+            if (hintItemDisablersU.Contains(item))
+            {
+                hintItemDisablersU.Remove(item);
+            }
+        }
+
+        if (hintItemDisablersU.Count==0&& hintItemDisablersI.Count == 0)
+        {
+            StopAllCoroutines();
+            this.gameObject.SetActive(false);
+          
         }
 
     }

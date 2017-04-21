@@ -15,6 +15,7 @@ public class PadLock : InteractivElement {
     {
         if (Inventory.Instance.activeElement.objName == "code")
         {
+            disableHint = true;
             feedbackOnly = true;
             code = true;
             Inventory.Instance.RemoveFromInventory(Inventory.Instance.activeElement);
