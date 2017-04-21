@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
                     if (intItem.isInteractive)
                     {
                         StartCoroutine(CountClick(intItem));
-                       
+                        HintFeedback.lastClickedElement = intItem;
                         intItem.OnClickBehaviour();
                         Inventory.Instance.SetActiveElement(0);
                     }
