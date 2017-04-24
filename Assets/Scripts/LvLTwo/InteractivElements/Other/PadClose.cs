@@ -22,6 +22,7 @@ public class PadClose : MonoBehaviour {
             if(ScreenText.text == "1234")
             {
                 //close all set doors open
+                Feedback.Instance.ShowText("**CODE CORRECT**", 1.5f, true);
                 PadLock.correctCode = true;
                 gameObject.SetActive(false);
             }
