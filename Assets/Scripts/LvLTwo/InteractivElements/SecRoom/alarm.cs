@@ -25,27 +25,27 @@ public class alarm : InteractivElement {
 
                     case States.Open:
                         Feedback.Instance.ShowText("OPEN VAULT DETECTET", 1f, feedbackOnly);
-                        Feedback.Instance.ShowText("DOOR CLOSING IN 5", 1f, feedbackOnly);
+                        Feedback.Instance.ShowText("DOOR SHUT DOWN IN 5", 1f, feedbackOnly);
 
                         break;
                     case States.PhaseOne:
 
-                        Feedback.Instance.ShowText("DOOR CLOSING IN 4", 1f, feedbackOnly);
+                        Feedback.Instance.ShowText("DOOR SHUT DOWN IN 4", 1f, feedbackOnly);
 
                         break;
                     case States.PhaseTwo:
 
-                        Feedback.Instance.ShowText("DOOR CLOSING IN 3", 1f, feedbackOnly);
+                        Feedback.Instance.ShowText("DOOR SHUT DOWN IN 3", 1f, feedbackOnly);
 
                         break;
                     case States.PhaseThree:
 
-                        Feedback.Instance.ShowText("DOOR CLOSING IN 2", 1f, feedbackOnly);
+                        Feedback.Instance.ShowText("DOOR SHUT DOWN IN 2", 1f, feedbackOnly);
 
                         break;
                     case States.PhaseFour:
                         vaultSec.sequenceStarted = true;
-                        Feedback.Instance.ShowText("DOOR CLOSING IN 1", 1f, feedbackOnly);
+                        Feedback.Instance.ShowText("DOOR SHUT DOWN IN 1", 1f, feedbackOnly);
 
                         break;
                     case States.PhaseFive:
