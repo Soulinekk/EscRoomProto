@@ -9,19 +9,28 @@ public class UseableElement : MonoBehaviour {
     public string objName;
     public Sprite icon;
     public string pickUpFeedback;
+    public string onClickFeedback;
     protected InteractivElement mainLamp;
     HintItem hand;
 
     public bool interactive=false;
+    public bool feedbackOnlyUseable;
     public GameObject closeUp;
 
-    public void OpenCloseUp()
+    public void OpenCloseUp()  //dla interaktywnych
     {
         if (closeUp != null)
         {
             closeUp.SetActive(true);
         }
     }
+    public void GiveFeedback()
+    {
+        if(onClickFeedback!="")
+            Feedback.Instance.ShowText(onClickFeedback, 2f, true);
+    }
+
+
 
     protected virtual void Start()
     {
@@ -57,4 +66,5 @@ public class UseableElement : MonoBehaviour {
         Feedback.Instance.ShowText(this.name, 1f,true);
         yield return null;
     }
+
 }

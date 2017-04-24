@@ -21,6 +21,7 @@ public class hintsManager : MonoBehaviour {
             }
             StartCoroutine(ShowHints());
         }
+        lastShowed = hintsItems[rnd.Next(hintsItems.Count - 1)];
     }
     void Update()
     {
@@ -63,12 +64,12 @@ public class hintsManager : MonoBehaviour {
             j++;
             if (j == 100)
             {
-                return lastShowed;
-                            
+                return lastShowed;         
             }
         }
          
         lastShowed = item;
+        
         return item;
         
     }

@@ -49,7 +49,7 @@ public class Inventory : Singleton<Inventory> {
         if (i < 6)
         {
             if (!inventory[i].interactive)
-            {//moj jedyny przyblizany element xd mozna dac flagi
+            {
                 activeElement = inventory[i];
                 if (i != 0)
                     invButtons[0].GetComponentInChildren<Image>().sprite = invButtons[i].GetComponentInChildren<Image>().sprite;
@@ -59,7 +59,11 @@ public class Inventory : Singleton<Inventory> {
                 if (i != 0)
                     Feedback.Instance.ShowText(activeElement.name, 0.5f, true);
             }
-            else
+            else if (inventory[i].feedbackOnlyUseable)
+            {
+                inventory[i].GiveFeedback();
+            }
+            else  //interactywny
             {
                 GameObject b = GameObject.Find("BackButton");
                 if(b!=null)

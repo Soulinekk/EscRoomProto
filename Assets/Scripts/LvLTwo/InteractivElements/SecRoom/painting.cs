@@ -11,8 +11,9 @@ public class painting : InteractivElement {
         base.Start();
         //  closed = false;
         //  activationCheck = true;
-       // foreach (UseableElement obj in hidenItems)
-            //obj.gameObject.SetActive(false);
+        // foreach (UseableElement obj in hidenItems)
+        //obj.gameObject.SetActive(false);
+        
         actualState = States.Closed;
     }
     /* protected override void ActivateSequenceCheck()

@@ -28,14 +28,16 @@ public class PadLock : InteractivElement {
             feedbackOnly = true;
             Feedback.Instance.ShowText("I Need to find code", 2f, true);
         }*/
-        if (codeGet)
+        if (codeGet && !correctCode)
         {
             Feedback.Instance.ShowText("I hope that code works", 2f, true);
-            //CloseUp.SetActive(true);
+            CloseUp.SetActive(true);
         }
+        else if (correctCode)
+            Feedback.Instance.ShowText("Door should be open now", 2f, true);
         else
             Feedback.Instance.ShowText("I need to find a code", 2f, true);
-        CloseUp.SetActive(true);
+        //CloseUp.SetActive(true);
 
         yield return null;
     }
