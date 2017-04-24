@@ -112,6 +112,7 @@ public class Screen : InteractivElement {
                             lupa.gameObject.SetActive(false);
                             Feedback.Instance.ShowText("yay got the code !!1!", 3f, true);
                             Inventory.Instance.AddToInventory(hidenItems[0]);
+                            PadLock.codeGet = true;
                         }
 
                     }

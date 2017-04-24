@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class PadLock : InteractivElement {
 
-    public static bool code;
+    public static bool correctCode;
+    public static bool codeGet=false;
+    public GameObject CloseUp;
     protected override void Start()
     {
         base.Start();
         activationCheck = false;
-        code = false; feedbackOnly = true;
+        correctCode = false; feedbackOnly = true;
     }
     protected override IEnumerator OnClickAction()
     {
-        if (Inventory.Instance.activeElement.objName == "code")
+        /*if (Inventory.Instance.activeElement.objName == "code")
         {
             disableHint = true;
             feedbackOnly = true;
@@ -25,7 +27,16 @@ public class PadLock : InteractivElement {
         {
             feedbackOnly = true;
             Feedback.Instance.ShowText("I Need to find code", 2f, true);
+        }*/
+        if (codeGet)
+        {
+            Feedback.Instance.ShowText("I hope that code works", 2f, true);
+            //CloseUp.SetActive(true);
         }
+        else
+            Feedback.Instance.ShowText("I need to find a code", 2f, true);
+        CloseUp.SetActive(true);
+
         yield return null;
     }
 

@@ -18,7 +18,7 @@ public class MainDoor : InteractivElement
             Feedback.Instance.ShowText("im not going to get out now :/", 3f, true);
 
         }
-        else if (PadLock.code)
+        else if (PadLock.correctCode)
         {
             feedbackOnly = true;
             Feedback.Instance.ShowText("CONGRATULATION", 10f, true);
