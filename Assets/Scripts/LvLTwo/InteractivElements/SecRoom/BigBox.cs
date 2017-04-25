@@ -33,6 +33,7 @@ public class BigBox : InteractivElement {
         switch (actualState)
         {
             case States.UnBroken:
+                vaultSec.sequenceStarted = false;
                 feedbackOnly = false;
                 Feedback.Instance.ShowText("theres small yellow key here",1f,feedbackOnly);
                 actualState = States.Closed;

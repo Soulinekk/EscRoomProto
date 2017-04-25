@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8d1b686b0c1dc664499f1bc9b987c6f6
-timeCreated: 1492674895
+timeCreated: 1493116403
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -129,8 +129,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 57
-        height: 51
+        width: 120
+        height: 200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,10 +140,10 @@ TextureImporter:
       name: alarmBulb_1
       rect:
         serializedVersion: 2
-        x: 61
+        x: 121
         y: 0
-        width: 57
-        height: 51
+        width: 120
+        height: 200
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,12 +153,12 @@ TextureImporter:
       name: alarmBulb_2
       rect:
         serializedVersion: 2
-        x: 61
+        x: 121
         y: 0
-        width: 57
-        height: 51
+        width: 120
+        height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -166,12 +166,12 @@ TextureImporter:
       name: alarmBulb_3
       rect:
         serializedVersion: 2
-        x: 61
+        x: 121
         y: 0
-        width: 57
-        height: 51
+        width: 120
+        height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -179,12 +179,12 @@ TextureImporter:
       name: alarmBulb_4
       rect:
         serializedVersion: 2
-        x: 61
+        x: 121
         y: 0
-        width: 57
-        height: 51
+        width: 120
+        height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -192,10 +192,10 @@ TextureImporter:
       name: alarmBulb_5
       rect:
         serializedVersion: 2
-        x: 61
+        x: 121
         y: 0
-        width: 57
-        height: 51
+        width: 120
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

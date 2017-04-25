@@ -61,6 +61,7 @@ public class vaultSec : InteractivElement
                 
                 if (Inventory.Instance.activeElement.objName == "vaultwheel")
                 {
+                    
                     feedbackOnly = false;
                     actualState = States.UnBroken;
                     mySpriteRenderer.sprite = avaibleSprites[0];
@@ -72,12 +73,13 @@ public class vaultSec : InteractivElement
                 {
                     feedbackOnly = true;
                     Feedback.Instance.ShowText("its missing a wheel", 2f, feedbackOnly);
+                    
                 }
                 break;
             case States.UnBroken:
                 actualState = States.Open;
                 //ALARM ON
-               
+                sequenceStarted = true;
                 feedbackOnly = false;
                 Feedback.Instance.ShowText("Oh no I turned on the alarm", 2f, feedbackOnly);
                 
