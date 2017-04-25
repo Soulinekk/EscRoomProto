@@ -13,8 +13,15 @@ public class painting : InteractivElement {
         //  activationCheck = true;
         // foreach (UseableElement obj in hidenItems)
         //obj.gameObject.SetActive(false);
-        
-        actualState = States.Closed;
+        if(!DataReloaded.vaultPassed)
+            actualState = States.Closed;
+        else
+        {
+            references[1].gameObject.SetActive(true);
+            mySpriteRenderer.enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            
+        }
     }
     /* protected override void ActivateSequenceCheck()
      {

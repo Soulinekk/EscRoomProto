@@ -74,7 +74,7 @@ public class Casket : InteractivElement
             case States.UnBroken:
                 actualState = States.Open;
                 hidenItems[0].PickUp();
-                
+                Feedback.Instance.ShowText("got osme sort of a key", 1.5f, true);
                 Inventory.Instance.RemoveFromInventory(hidenItems[1]);
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 

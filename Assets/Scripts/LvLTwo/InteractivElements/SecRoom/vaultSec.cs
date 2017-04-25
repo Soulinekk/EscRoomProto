@@ -13,8 +13,20 @@ public class vaultSec : InteractivElement
         //  activationCheck = true;
         // foreach (UseableElement obj in hidenItems)
         //obj.gameObject.SetActive(false);
-        actualState = States.Closed;
-        gameObject.SetActive(false);
+        if (DataReloaded.vaultPassed)
+        {
+            actualState = States.PhaseSix;
+            hidenItems[1].gameObject.SetActive(true);
+            mySpriteRenderer.sprite = avaibleSprites[1];
+        }
+
+        else
+        {
+            actualState = States.Closed;
+            gameObject.SetActive(false);
+        }
+        
+        
     }
     /* protected override void ActivateSequenceCheck()
      {
@@ -29,7 +41,8 @@ public class vaultSec : InteractivElement
 
     protected override void FixedUpdate()
     {
-        if(references[1].actualState == States.PhaseOne && actualState!= States.PhaseOne)
+        
+        if(references[1].actualState == States.PhaseOne && actualState!= States.PhaseOne && actualState!= States.PhaseSix)
         {
             actualState = States.PhaseOne;
             mySpriteRenderer.sprite = avaibleSprites[0];
@@ -79,6 +92,11 @@ public class vaultSec : InteractivElement
                 feedbackOnly = true;
                 Feedback.Instance.ShowText("Better not to open again, alarm is off", 2f, feedbackOnly);
                 
+                break;
+            case States.PhaseSix:
+                feedbackOnly = true;
+                Feedback.Instance.ShowText("Theres a vault but its open", 2f, feedbackOnly);
+
                 break;
             default:
 

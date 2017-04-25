@@ -61,6 +61,7 @@ public class BigBox : InteractivElement {
                 Feedback.Instance.ShowText("who's keeping his hammer in vault?", 1.5f, false);
                 hidenItems[1].PickUp();
                 //closevault
+                DataReloaded.vaultPassed = true;
                 actualState = States.PhaseOne;
 
                 break;

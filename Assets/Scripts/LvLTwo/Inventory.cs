@@ -82,6 +82,7 @@ public class Inventory : Singleton<Inventory> {
         inventory.Remove(item);
         UpdateButtons();
         SetActiveElement(0);
+        
     }
     private void UpdateButtons()
     {
